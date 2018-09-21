@@ -1,0 +1,10 @@
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\bin\Debug\theDrawing.exe.config
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\bin\Debug\theDrawing.exe
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\bin\Debug\theDrawing.pdb
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.csprojAssemblyReference.cache
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.imsodumb.resources
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.Properties.Resources.resources
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.csproj.GenerateResource.cache
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.csproj.CoreCompileInputs.cache
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.exe
+C:\Users\Sasha\source\repos\theDrawing\theDrawing\obj\Debug\theDrawing.pdb
