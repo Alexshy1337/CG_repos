@@ -1,0 +1,8 @@
+E:\DrawingProject\DrawingProject\bin\Release\DrawingProject.exe.config
+E:\DrawingProject\DrawingProject\bin\Release\DrawingProject.exe
+E:\DrawingProject\DrawingProject\bin\Release\DrawingProject.pdb
+E:\DrawingProject\DrawingProject\obj\Release\DrawingProject.JustForm.resources
+E:\DrawingProject\DrawingProject\obj\Release\DrawingProject.Properties.Resources.resources
+E:\DrawingProject\DrawingProject\obj\Release\DrawingProject.csproj.GenerateResource.Cache
+E:\DrawingProject\DrawingProject\obj\Release\DrawingProject.exe
+E:\DrawingProject\DrawingProject\obj\Release\DrawingProject.pdb
