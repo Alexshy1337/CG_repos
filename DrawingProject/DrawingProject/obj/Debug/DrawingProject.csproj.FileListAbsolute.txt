@@ -27,3 +27,13 @@ E:\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csprojResolveAssemblyR
 E:\DrawingProject\DrawingProject\obj\Debug\DrawingProject.JustForm.resources
 E:\DrawingProject\DrawingProject\obj\Debug\DrawingProject.Properties.Resources.resources
 E:\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.GenerateResource.Cache
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.exe.config
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.exe
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.pdb
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csprojAssemblyReference.cache
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.JustForm.resources
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.Properties.Resources.resources
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.GenerateResource.cache
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.exe
+D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.pdb
