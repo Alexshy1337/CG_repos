@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GraphicsClass.cs" />
     <Compile Include="JustForm.cs">
       <SubType>Form</SubType>
     </Compile>

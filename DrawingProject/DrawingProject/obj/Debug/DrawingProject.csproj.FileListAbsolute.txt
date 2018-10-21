@@ -37,3 +37,13 @@ D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProj
 D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.CoreCompileInputs.cache
 D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.exe
 D:\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.pdb
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.exe.config
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.exe
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\bin\Debug\DrawingProject.pdb
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csprojAssemblyReference.cache
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.JustForm.resources
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.Properties.Resources.resources
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.GenerateResource.cache
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.csproj.CoreCompileInputs.cache
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.exe
+C:\Users\Iriska\Documents\GitHub\CG_repos\DrawingProject\DrawingProject\obj\Debug\DrawingProject.pdb
