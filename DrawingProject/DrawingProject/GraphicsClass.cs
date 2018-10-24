@@ -32,19 +32,15 @@ namespace DrawingProject
         {
             int w = width / 2, h = height / 2;
 
-            //получаем угол обязательно меньший полного круга
-            StartAngle = StartAngle % 360;
-            SweepAngle = SweepAngle % 360;
-
             //переводим в радианы
-            double StartAngleR = (Math.PI / 180.0) * StartAngle;
+            double StartAngleR = (Math.PI / 180.0) * (StartAngle % 360);
             double EndAngleR = (Math.PI / 180.0) * ((StartAngle + SweepAngle) % 360);
 
-            //точка начала дуги
+            //точка начала дуги в реальных координатах
             int xs = (int)Math.Round(w * Math.Cos(StartAngleR));
             int ys = (int)Math.Round(h * Math.Sin(StartAngleR));
 
-            //точка конца дуги
+            //точка конца дуги в реальных координатах
             int xe = (int)Math.Round(w * Math.Cos(EndAngleR));
             int ye = (int)Math.Round(h * Math.Sin(EndAngleR));
 
@@ -74,7 +70,7 @@ namespace DrawingProject
                     ysign = -1;
                 }
             }
-            else if (xs == 0)
+            else
             {
                 if (ys > 0)
                 {
@@ -93,10 +89,7 @@ namespace DrawingProject
 
             while (Math.Abs(x - xe) > 1 || Math.Abs(y - ye) > 1)
             {
-                if (y == 0 && started == true)
-                    xsign = -xsign;
-                if (x == 0 && started == true)
-                    ysign = -ysign;
+                
 
                 bit.SetPixel( w + x0 + x, h + y0 - y, p.Color);
 
@@ -118,7 +111,10 @@ namespace DrawingProject
                 started = true;
 
 
-
+                if (y == 0 && started == true)
+                    xsign = -xsign;
+                if (x == 0 && started == true)
+                    ysign = -ysign;
 
 
 
