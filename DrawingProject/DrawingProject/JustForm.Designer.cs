@@ -142,7 +142,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Конечный угол";
+            this.label5.Text = "Угол поворота";
             // 
             // label4
             // 
@@ -266,7 +266,7 @@
             0,
             0});
             this.HeightValue.Minimum = new decimal(new int[] {
-            50,
+            1,
             0,
             0,
             0});
@@ -310,7 +310,7 @@
             0,
             0});
             this.WidthValue.Minimum = new decimal(new int[] {
-            70,
+            2,
             0,
             0,
             0});
