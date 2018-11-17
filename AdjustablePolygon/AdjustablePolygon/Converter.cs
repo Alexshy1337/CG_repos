@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,46 +9,52 @@ namespace AdjustablePolygon
 {
     class Converter
     {
+        public double X1 { get; set; }
+        public double Y1 { get; set; }
+        public double X2 { get; set; }
+        public double Y2 { get; set; }
 
-
-        private double x1, x2, y1, y2;
-
-        public double X1 { get { return x1; } set { x1 = value; } }
-        public double Y1 { get { return y1; } set { y1 = value; } }
-        public double X2 { get { return x2; } set { x2 = value; } }
-        public double Y2 { get { return y2; } set { y2 = value; } }
         public int ScreenHeight { get; private set; }
         public int ScreenWidth { get; private set; }
+
         public Converter(int sw, int sh)
         {
-
-            x1 = -100;
-            x2 = 100;
-            y1 = -100;
-            y2 = 100;
+            X1 = -300;
+            X2 = 300;
+            Y1 = -300;
+            Y2 = 300;
             ScreenWidth = sw;
             ScreenHeight = sh;
-
         }
 
-        public int II(double x)
+        public int II(double X)
         {
-            return (int)(ScreenWidth * ((x - x1) / (x2 - x1)));
+            return (int)(ScreenWidth * (X - X1) / (X2 - X1));
         }
 
-        public int JJ(double y)
+        public int JJ(double Y)
         {
-            return (int)((y - y1) * ScreenHeight / (y2 - y1));
+            return (int)(ScreenHeight * (Y1 - Y) / (Y1 - Y2));
         }
 
         public double XX(int I)
         {
-            return x1 + I * (x2 - x1) / ScreenWidth;
+            return X1 + I * (X2 - X1) / ScreenWidth;
         }
 
         public double YY(int J)
         {
-            return y1 + J * (y2 - y1) / ScreenHeight;
+            return Y1 - J * (Y2 - Y1) / ScreenHeight;
+        }
+
+        public Point IIJJ(PointF point)
+        {
+            return new Point(II(point.X), JJ(point.Y));
+        }
+
+        public PointF XXYY(Point point)
+        {
+            return new PointF((float)XX(point.X), (float)YY(point.Y));
         }
     }
 }

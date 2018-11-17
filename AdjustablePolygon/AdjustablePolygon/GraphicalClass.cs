@@ -9,8 +9,8 @@ namespace AdjustablePolygon
 {
     class GraphicalClass
     {
-        
-         
+
+
         public static Bitmap BrLine(Bitmap bit, Pen p, int x0, int y0, int x1, int y1)
         {
             var steep = Math.Abs(y1 - y0) > Math.Abs(x1 - x0);
@@ -105,276 +105,26 @@ namespace AdjustablePolygon
             return bit;
         }
 
-
-        public static Bitmap DrawPolygon(Bitmap bit, Pen p, int x0, int y0, int length, int AmountOfAngles, out List<Point> Polygon)
+        public static Bitmap DrawPolygon(Bitmap bit, Pen p, Converter con, List<Point> polygon)
         {
-            Polygon = new List<Point>();
-            if (AmountOfAngles > 2)
-            {
-                switch (AmountOfAngles)
-                {
-                    case 3:
-                        {
-                            int x1 = x0 - length / 2, x2 = x0 + length / 2;
-                            int y1 = y0 + (int)Math.Round(Math.Sqrt(3 * length * length / 4));
+            for (int i = 0; i < polygon.Count - 1; i++)
+                bit = BrLine(bit, p, con.IIJJ(polygon[i]), con.IIJJ(polygon[i + 1]));
+            bit = BrLine(bit, p, con.IIJJ(polygon[0]), con.IIJJ(polygon[polygon.Count - 1]));
 
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x1, y1));
-                            Polygon.Add(new Point(x2, y1));
-                            bit = BrLine(bit, p, Polygon[0], Polygon[1]);
-                            bit = BrLine(bit, p, Polygon[0], Polygon[2]);
-                            bit = BrLine(bit, p, Polygon[1], Polygon[2]);
-
-                            break;
-                        }
-                    case 4:
-                        {
-                            int x1 = x0 + length, y1 = y0 + length;
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            bit = BrLine(bit, p, x0, y0, x1, y0);
-                            bit = BrLine(bit, p, x0, y0, x0, y1);
-                            bit = BrLine(bit, p, x1, y0, x1, y1);
-                            bit = BrLine(bit, p, x0, y1, x1, y1);
-                            break;
-                        }
-                    case 5:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            break;
-                        }
-                    case 6:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            break;
-                        }
-                    case 7:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            break;
-                        }
-                    case 8:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            break;
-                        }
-                    case 9:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-                            break;
-                        }
-                    case 10:
-                        {
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-                            break;
-                        }
-                    case 11:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-                            break;
-                        }
-                    case 12:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-                            break;
-                        }
-                    case 13:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-
-                            break;
-                        }
-                    case 14:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-                            break;
-                        }
-                    case 15:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-
-                            break;
-                        }
-                    case 16:
-                        {
-
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-                            Polygon.Add(new Point(x0, y0));
-
-
-                            break;
-                        }
-                    case 17:
-                        {
-                            break;
-                        }
-                    case 18:
-                        {
-                            break;
-                        }
-                    case 19:
-                        {
-                            break;
-                        }
-                    case 20:
-                        {
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
-                }
-                return bit;
-            }
-            else
-                return bit;
-            
+            return bit;
         }
 
-
-
-
+        public static void CalcPoints(int radius, int index, out List<Point> p)
+        {
+            p = new List<Point>();
+            double angle = 2 * Math.PI / index;
+            int x = 0, y = radius; //outer circle radius
+            for (int i = 0; i < index; i++)
+            {
+                p.Add(new Point(x, y));
+                x = (int)(x * Math.Cos(angle) - y * Math.Sin(angle));
+                y = (int)(y * Math.Cos(angle) + p.Last().X * Math.Sin(angle));
+            }
+        }
     }
 }

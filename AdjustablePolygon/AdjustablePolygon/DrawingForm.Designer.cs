@@ -29,25 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ActionButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LengthNumeric = new System.Windows.Forms.NumericUpDown();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AmountOfAnglesNumeric = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DrawingPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LengthNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfAnglesNumeric)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ActionButton);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.LengthNumeric);
             this.panel1.Controls.Add(this.InfoLabel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.AmountOfAnglesNumeric);
@@ -57,51 +50,10 @@
             this.panel1.Size = new System.Drawing.Size(794, 67);
             this.panel1.TabIndex = 1;
             // 
-            // ActionButton
-            // 
-            this.ActionButton.Location = new System.Drawing.Point(250, 24);
-            this.ActionButton.Name = "ActionButton";
-            this.ActionButton.Size = new System.Drawing.Size(79, 23);
-            this.ActionButton.TabIndex = 5;
-            this.ActionButton.Text = "Нарисовать";
-            this.ActionButton.UseVisualStyleBackColor = true;
-            this.ActionButton.Click += new System.EventHandler(this.ActionButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Длина отрезка";
-            // 
-            // LengthNumeric
-            // 
-            this.LengthNumeric.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.LengthNumeric.Location = new System.Drawing.Point(139, 26);
-            this.LengthNumeric.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.LengthNumeric.Name = "LengthNumeric";
-            this.LengthNumeric.Size = new System.Drawing.Size(81, 20);
-            this.LengthNumeric.TabIndex = 3;
-            this.LengthNumeric.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
             // InfoLabel
             // 
             this.InfoLabel.AutoSize = true;
-            this.InfoLabel.Location = new System.Drawing.Point(374, 29);
+            this.InfoLabel.Location = new System.Drawing.Point(595, 29);
             this.InfoLabel.Name = "InfoLabel";
             this.InfoLabel.Size = new System.Drawing.Size(35, 13);
             this.InfoLabel.TabIndex = 2;
@@ -110,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Location = new System.Drawing.Point(130, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 1;
@@ -118,7 +70,7 @@
             // 
             // AmountOfAnglesNumeric
             // 
-            this.AmountOfAnglesNumeric.Location = new System.Drawing.Point(12, 27);
+            this.AmountOfAnglesNumeric.Location = new System.Drawing.Point(233, 27);
             this.AmountOfAnglesNumeric.Maximum = new decimal(new int[] {
             20,
             0,
@@ -137,6 +89,7 @@
             0,
             0,
             0});
+            this.AmountOfAnglesNumeric.ValueChanged += new System.EventHandler(this.AmountOfAnglesNumeric_ValueChanged);
             // 
             // tableLayoutPanel
             // 
@@ -164,6 +117,7 @@
             this.DrawingPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseDown);
             this.DrawingPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseMove);
             this.DrawingPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseUp);
+            this.DrawingPanel.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseWheel);
             // 
             // DrawingForm
             // 
@@ -173,9 +127,9 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "DrawingForm";
             this.Text = "hard";
+            this.Load += new System.EventHandler(this.DrawingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LengthNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfAnglesNumeric)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -190,9 +144,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Panel DrawingPanel;
         private System.Windows.Forms.Label InfoLabel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown LengthNumeric;
-        private System.Windows.Forms.Button ActionButton;
     }
 }
 

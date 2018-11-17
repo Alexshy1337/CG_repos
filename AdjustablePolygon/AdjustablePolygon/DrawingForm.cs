@@ -15,47 +15,73 @@ namespace AdjustablePolygon
         public DrawingForm()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
+        int RAD;
+        bool Dragging = false;
+        Bitmap bit;
         Converter Conv;
-        List<Point> Polygon;
-        //Point p0, p1;
+        List<Point> PolygonPoints;
+        MouseEventArgs eTemp;
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
             DrawingPanel.CreateGraphics().Clear(Color.White);
-            Conv = new Converter(DrawingPanel.Width, DrawingPanel.Height);
-            Bitmap bit = new Bitmap(DrawingPanel.Width, DrawingPanel.Height);
-
-            DrawingPanel.CreateGraphics().DrawImage(GraphicalClass.DrawPolygon(bit, Pens.Black, DrawingPanel.Width / 2, DrawingPanel.Height / 3, (int)LengthNumeric.Value, (int)AmountOfAnglesNumeric.Value, out Polygon), 0, 0);
-
+            bit = GraphicalClass.DrawPolygon(bit, Pens.Black, Conv, PolygonPoints);
+            DrawingPanel.CreateGraphics().DrawImage(bit, 0, 0);
         }
 
+        private void DrawingPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            double x = Conv.XX(e.X), y = Conv.YY(e.Y);
+            double changeCoeff = e.Delta > 0 ? 0.75 : 1.25;
+            Conv.X1 = x - (x - Conv.X1) * changeCoeff;
+            Conv.Y1 = y - (y - Conv.Y1) * changeCoeff;
+            Conv.X2 = x + (Conv.X2 - x) * changeCoeff;
+            Conv.Y2 = y + (Conv.Y2 - y) * changeCoeff;
+            DrawingPanel.Invalidate();
+        }
 
         private void DrawingPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            //p0 = new Point(e.X, e.Y);
-            //DrawingPanel.CreateGraphics().DrawRectangle(Pens.Black, p0.X, p0.Y, 1, 1);
-
-            InfoLabel.Text = "mouse down";
+            Dragging = true;
+            eTemp = e;
         }
 
         private void DrawingPanel_MouseUp(object sender, MouseEventArgs e)
         {
-
-            InfoLabel.Text = "mouse up";
-
+            Dragging = false;
         }
+
         private void DrawingPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            InfoLabel.Text = "mouse move";
-
+            if(Dragging)
+            {
+                double deltaX = Conv.XX(e.X) - Conv.XX(eTemp.X), deltaY = Conv.YY(e.Y) - Conv.YY(eTemp.Y);
+                eTemp = e;
+                Conv.X1 -= deltaX;
+                Conv.Y1 -= deltaY;
+                Conv.X2 -= deltaX;
+                Conv.Y2 -= deltaY;
+                DrawingPanel.Invalidate();
+            }
         }
 
-        private void ActionButton_Click(object sender, EventArgs e)
+        private void AmountOfAnglesNumeric_ValueChanged(object sender, EventArgs e)
         {
-            DrawingPanel.CreateGraphics().Clear(Color.White);
+            
+            GraphicalClass.CalcPoints(DrawingPanel.Height / 4, (int)AmountOfAnglesNumeric.Value, out PolygonPoints);
+            DrawingPanel.Invalidate();
+        }
 
+        private void DrawingForm_Load(object sender, EventArgs e)
+        {
+            RAD = DrawingPanel.Height / 5;
+            bit = new Bitmap(DrawingPanel.Width, DrawingPanel.Height);
+            Conv = new Converter(DrawingPanel.Width, DrawingPanel.Height);
+            PolygonPoints.Clear();
+            GraphicalClass.CalcPoints(DrawingPanel.Height / 4, (int)AmountOfAnglesNumeric.Value, out PolygonPoints);
         }
     }
 }
