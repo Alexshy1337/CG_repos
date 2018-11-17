@@ -105,26 +105,14 @@ namespace AdjustablePolygon
             return bit;
         }
 
-        public static Bitmap DrawPolygon(Bitmap bit, Pen p, Converter con, List<Point> polygon)
+        public static Bitmap DrawPolygon(Bitmap bit, Pen p, Converter con, Polygon polygon)
         {
-            for (int i = 0; i < polygon.Count - 1; i++)
-                bit = BrLine(bit, p, con.IIJJ(polygon[i]), con.IIJJ(polygon[i + 1]));
-            bit = BrLine(bit, p, con.IIJJ(polygon[0]), con.IIJJ(polygon[polygon.Count - 1]));
+            for (int i = 0; i < polygon.VertAmount - 1; i++)
+                bit = BrLine(bit, p, con.IIJJ(polygon.Vert[i]), con.IIJJ(polygon.Vert[i + 1]));
+            bit = BrLine(bit, p, con.IIJJ(polygon.Vert[0]), con.IIJJ(polygon.Vert[polygon.VertAmount - 1]));
 
             return bit;
         }
 
-        public static void CalcPoints(int radius, int index, out List<Point> p)
-        {
-            p = new List<Point>();
-            double angle = 2 * Math.PI / index;
-            int x = 0, y = radius; //outer circle radius
-            for (int i = 0; i < index; i++)
-            {
-                p.Add(new Point(x, y));
-                x = (int)(x * Math.Cos(angle) - y * Math.Sin(angle));
-                y = (int)(y * Math.Cos(angle) + p.Last().X * Math.Sin(angle));
-            }
-        }
     }
 }

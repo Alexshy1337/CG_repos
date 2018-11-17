@@ -15,21 +15,23 @@ namespace AdjustablePolygon
         public DrawingForm()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, DrawingPanel, new object[] { true });
         }
 
-        int RAD;
         bool Dragging = false;
-        Bitmap bit;
         Converter Conv;
-        List<Point> PolygonPoints;
+        Polygon polygon;
         MouseEventArgs eTemp;
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            DrawingPanel.CreateGraphics().Clear(Color.White);
-            bit = GraphicalClass.DrawPolygon(bit, Pens.Black, Conv, PolygonPoints);
-            DrawingPanel.CreateGraphics().DrawImage(bit, 0, 0);
+            Image img = GraphicalClass.DrawPolygon(new Bitmap(DrawingPanel.Width, DrawingPanel.Height), Pens.Black, Conv, polygon);
+            e.Graphics.DrawImage(img, 0, 0);
+            img.Dispose();
         }
 
         private void DrawingPanel_MouseWheel(object sender, MouseEventArgs e)
@@ -56,7 +58,8 @@ namespace AdjustablePolygon
 
         private void DrawingPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if(Dragging)
+            DrawingPanel.Focus();
+            if (Dragging)
             {
                 double deltaX = Conv.XX(e.X) - Conv.XX(eTemp.X), deltaY = Conv.YY(e.Y) - Conv.YY(eTemp.Y);
                 eTemp = e;
@@ -68,20 +71,34 @@ namespace AdjustablePolygon
             }
         }
 
-        private void AmountOfAnglesNumeric_ValueChanged(object sender, EventArgs e)
+        private void DrawingPanel_Resize(object sender, EventArgs e)
         {
-            
-            GraphicalClass.CalcPoints(DrawingPanel.Height / 4, (int)AmountOfAnglesNumeric.Value, out PolygonPoints);
-            DrawingPanel.Invalidate();
+            Conv.ScreenWidth = DrawingPanel.Width; Conv.ScreenHeight = DrawingPanel.Height;
         }
+
 
         private void DrawingForm_Load(object sender, EventArgs e)
         {
-            RAD = DrawingPanel.Height / 5;
-            bit = new Bitmap(DrawingPanel.Width, DrawingPanel.Height);
             Conv = new Converter(DrawingPanel.Width, DrawingPanel.Height);
-            PolygonPoints.Clear();
-            GraphicalClass.CalcPoints(DrawingPanel.Height / 4, (int)AmountOfAnglesNumeric.Value, out PolygonPoints);
+            polygon = new Polygon((int)AmountOfAnglesNumeric.Value, (int)RADnumeric.Value, (int)StartAngleNumeric.Value);
+        }
+
+        private void AmountOfAnglesNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            polygon.VertAmount = (int)AmountOfAnglesNumeric.Value;
+            DrawingPanel.Invalidate();
+        }
+
+        private void StartAngleNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            polygon.StartAngle = (int)StartAngleNumeric.Value;
+            DrawingPanel.Invalidate();
+        }
+
+        private void RADnumeric_ValueChanged(object sender, EventArgs e)
+        {
+            polygon.Radius = (int)RADnumeric.Value;
+            DrawingPanel.Invalidate();
         }
     }
 }
