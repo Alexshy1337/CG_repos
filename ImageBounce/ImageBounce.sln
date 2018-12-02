@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBounce", "ImageBounce\ImageBounce.csproj", "{32EC26C8-5210-4A48-A4A3-1CAEACE58304}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationClass", "AnimationClass\AnimationClass.csproj", "{87C174E2-D067-4AC9-8200-C7A81B7A7291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustablePolygon", "AdjustablePolygon\AdjustablePolygon.csproj", "{50047FB3-E764-454F-87C8-A1D6EB332E0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{87C174E2-D067-4AC9-8200-C7A81B7A7291}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C174E2-D067-4AC9-8200-C7A81B7A7291}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C174E2-D067-4AC9-8200-C7A81B7A7291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50047FB3-E764-454F-87C8-A1D6EB332E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50047FB3-E764-454F-87C8-A1D6EB332E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50047FB3-E764-454F-87C8-A1D6EB332E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50047FB3-E764-454F-87C8-A1D6EB332E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

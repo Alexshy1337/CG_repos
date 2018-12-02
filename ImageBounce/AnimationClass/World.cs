@@ -38,17 +38,23 @@ namespace ImageBounce
             p.Velocity = v;
             p.Position = pos;
         }
-        public void Draw(Graphics g, Screen scr)
+        public void Draw(Graphics g, MyScreen scr)
         {
             float xs = p.Sprite.Width * scr.Scale, ys = p.Sprite.Height * scr.Scale;
 
             g.DrawImage(p.Sprite, new Rectangle((int)(p.Position.X - xs / 2), (int)(p.Position.Y - ys / 2), (int)xs, (int)ys));
 
-            //g.DrawImage(p.Sprite, (scr.Size.Width - xs)/2, (scr.Size.Height - ys) / 2, xs, ys);
-
-
             //int r = (int)(p.R * scr.Scale);
             //g.FillEllipse(Brushes.Black, (int)(p.Position.X - r), (int)(p.Position.Y - r), r + r, r + r);
         }
+
+        public void DrawStandart(Graphics g, MyScreen scr)
+        {
+            //int r = (int)(p.R * scr.Scale);
+            //(int)(p.Position.X - r), (int)(p.Position.Y - r), r + r, r + r);
+
+
+        }
+
     }
 }
