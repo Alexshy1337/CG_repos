@@ -74,7 +74,7 @@
             // 
             this.CreateToolStripMenuItem.Name = "CreateToolStripMenuItem";
             this.CreateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.CreateToolStripMenuItem.Text = "Create";
+            this.CreateToolStripMenuItem.Text = "Create polygon";
             this.CreateToolStripMenuItem.Click += new System.EventHandler(this.CreateToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem1

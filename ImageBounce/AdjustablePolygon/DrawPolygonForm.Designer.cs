@@ -184,7 +184,6 @@
             this.DrawingPanel.Size = new System.Drawing.Size(505, 505);
             this.DrawingPanel.TabIndex = 0;
             this.DrawingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawingPanel_Paint);
-            this.DrawingPanel.Resize += new System.EventHandler(this.DrawingPanel_Resize);
             // 
             // DrawPolygonForm
             // 

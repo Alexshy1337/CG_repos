@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdjustablePolygon
@@ -22,30 +16,20 @@ namespace AdjustablePolygon
                 null, DrawingPanel, new object[] { true });
         }
 
-        bool Dragging = false;
         Converter Conv;
         Polygon polygon;
-        MouseEventArgs eTemp;
         public Bitmap output;
-
         Bitmap img;
+
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            img = GraphicalClass.DrawPolygon(new Bitmap(DrawingPanel.Width, DrawingPanel.Height), Pens.Black, Conv, polygon);
-            //output = img;
-            e.Graphics.DrawImage(img, 0, 0);
-            //img.Dispose();
+            img = GraphicalClass.DrawPolygon(new Bitmap(2 * (int)RADnumeric.Value + 1, 2 * (int)RADnumeric.Value + 1), Pens.Black, Conv, polygon);
+            e.Graphics.DrawImage(img, DrawingPanel.Width/2 - (int)RADnumeric.Value, DrawingPanel.Height/2 - (int)RADnumeric.Value);
         }
-
-        private void DrawingPanel_Resize(object sender, EventArgs e)
-        {
-            Conv.ScreenWidth = DrawingPanel.Width; Conv.ScreenHeight = DrawingPanel.Height;
-        }
-
 
         private void DrawingForm_Load(object sender, EventArgs e)
         {
-            Conv = new Converter(DrawingPanel.Width, DrawingPanel.Height);
+            Conv = new Converter(2 * (int)RADnumeric.Value + 4, 2 * (int)RADnumeric.Value + 4);
             polygon = new Polygon((int)AmountOfAnglesNumeric.Value, (int)RADnumeric.Value, (int)StartAngleNumeric.Value);
         }
 
@@ -64,14 +48,13 @@ namespace AdjustablePolygon
         private void RADnumeric_ValueChanged(object sender, EventArgs e)
         {
             polygon.Radius = (int)RADnumeric.Value;
+            Conv = new Converter(2 * (int)RADnumeric.Value + 4, 2 * (int)RADnumeric.Value + 4);
             DrawingPanel.Invalidate();
         }
 
         private void FinishButton_Click(object sender, EventArgs e)
         {
-
             output = img;
-            //Close();
         }
     }
 }
