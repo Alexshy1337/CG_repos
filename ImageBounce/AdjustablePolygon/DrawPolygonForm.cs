@@ -23,13 +23,13 @@ namespace AdjustablePolygon
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            img = GraphicalClass.DrawPolygon(new Bitmap(2 * (int)RADnumeric.Value + 1, 2 * (int)RADnumeric.Value + 1), Pens.Black, Conv, polygon);
+            img = GraphicalClass.DrawPolygon(new Bitmap(2 * (int)RADnumeric.Value + 3, 2 * (int)RADnumeric.Value + 3), Pens.Black, Conv, polygon);
             e.Graphics.DrawImage(img, DrawingPanel.Width/2 - (int)RADnumeric.Value, DrawingPanel.Height/2 - (int)RADnumeric.Value);
         }
 
         private void DrawingForm_Load(object sender, EventArgs e)
         {
-            Conv = new Converter(2 * (int)RADnumeric.Value + 4, 2 * (int)RADnumeric.Value + 4);
+            Conv = new Converter(2 * (int)RADnumeric.Value + 3, 2 * (int)RADnumeric.Value + 3);
             polygon = new Polygon((int)AmountOfAnglesNumeric.Value, (int)RADnumeric.Value, (int)StartAngleNumeric.Value);
         }
 
@@ -48,7 +48,7 @@ namespace AdjustablePolygon
         private void RADnumeric_ValueChanged(object sender, EventArgs e)
         {
             polygon.Radius = (int)RADnumeric.Value;
-            Conv = new Converter(2 * (int)RADnumeric.Value + 4, 2 * (int)RADnumeric.Value + 4);
+            Conv = new Converter(2 * (int)RADnumeric.Value + 3, 2 * (int)RADnumeric.Value + 3);
             DrawingPanel.Invalidate();
         }
 
