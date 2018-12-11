@@ -9,6 +9,7 @@ namespace ClassLibrary1
     public struct Matrix4
     {
         private float[,] matr;
+
         public Matrix4(float[,] m)
         {
             matr = new float[4, 4];
@@ -16,15 +17,18 @@ namespace ClassLibrary1
                 for (int j = 0; j < 4; j++)
                     matr[i, j] = m[i, j];
         }
+
         public float this[int i, int j]
         {
             get { return matr[i, j]; }
             set { matr[i, j] = value; }
         }
+
         public static Matrix4 Zero()
         {
             return new Matrix4(new float[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } });
         }
+
         public static Matrix4 One()
         {
             return new Matrix4(new float[,]
@@ -35,6 +39,7 @@ namespace ClassLibrary1
                 { 0,0,0,1}
             });
         }
+
         public static Vector4 operator*(Matrix4 m, Vector4 v)
         {
             Vector4 r = Vector4.Zero();
@@ -42,7 +47,9 @@ namespace ClassLibrary1
                 for (int j = 0; j < 4; j++)
                     r[i] += m[i, j] * v[j];
             return r;
+
         }
+
         public static Matrix4 operator*(Matrix4 m1, Matrix4 m2)
         {
             Matrix4 r = Matrix4.Zero();
@@ -52,6 +59,7 @@ namespace ClassLibrary1
                         r[i, j] += m1[i, k] * m2[k, j];
             return r;
         }
+
         public static Matrix4 Rotate(int ia, float angle)
         {
             int a1 = (ia + 1) % 3;
@@ -65,3 +73,13 @@ namespace ClassLibrary1
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

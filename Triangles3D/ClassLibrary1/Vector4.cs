@@ -9,6 +9,7 @@ namespace ClassLibrary1
     public struct Vector4
     {
         private float[] crd;
+
         public Vector4(Vector3 v)
         {
             crd = new float[4] { v.X, v.Y, v.Z, 1};
@@ -17,10 +18,12 @@ namespace ClassLibrary1
         //{
         //    crd = new float[4] { X, Y, Z, w };
         //}
+
         public Vector4(float x, float y, float z, float w = 1)
         {
             crd = new float[] { x, y, z, w };
         }
+
         public float X
         {
             get
@@ -28,6 +31,7 @@ namespace ClassLibrary1
             set
             { crd[0] = value; }
         }
+
         public float Y
         {
             get
@@ -35,6 +39,7 @@ namespace ClassLibrary1
             set
             { crd[1] = value; }
         }
+
         public float Z
         {
             get
@@ -42,6 +47,7 @@ namespace ClassLibrary1
             set
             { crd[2] = value; }
         }
+
         public float W
         {
             get
@@ -49,11 +55,13 @@ namespace ClassLibrary1
             set
             { crd[3] = value; }
         }
+
         public float this[int i] // перегрузка индексного оператора
         {
             get { return crd[i]; }
             set { crd[i] = value; }
         }
+
         public static Vector4 Zero()
         {
             return new Vector4(0, 0, 0, 0);

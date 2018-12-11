@@ -14,10 +14,10 @@ namespace ClassLibrary1
             v1 = a;
             v2 = b;
         }
+
         public List<PolyLine3D> GetLines()
         {
-            return new List<PolyLine3D>() { new PolyLine3D(new List<Vector3>() { v1, v2})
-            };
+            return new List<PolyLine3D>() { new PolyLine3D(new List<Vector3>() { v1, v2 }) };
         }
     }
 }

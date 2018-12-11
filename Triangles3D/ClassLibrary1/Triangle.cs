@@ -6,32 +6,27 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    class Triangle
+    class Triangle : IModel
     {
         public Vector3 A { get; set; }
+        public Vector3 B { get; set; }
+        public Vector3 C { get; set; }
 
-        public Triangle(Vector3 a)
+        public Triangle(Vector3 a, Vector3 b, Vector3 c)
         {
             A = a;
+            B = b;
+            C = c;
         }
-
-
-        //turnAroundAxis(axis, angle)
 
         public List<PolyLine3D> GetLines()
         {
-            List<PolyLine3D> l = new List<PolyLine3D>();
-
-            l.Add(
-                new PolyLine3D())
-
-
-
-
-
+            List<PolyLine3D> l = new List<PolyLine3D>
+            {new PolyLine3D(new List<Vector3>{A, B, C}, true)};
             return l;
         }
 
+        //turnAroundAxis(axis, angle)
 
     }
 }
