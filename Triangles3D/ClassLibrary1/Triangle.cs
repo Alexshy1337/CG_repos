@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    class Triangle : IModel
+    public class Triangle : IModel
     {
         public Vector3 A { get; set; }
         public Vector3 B { get; set; }

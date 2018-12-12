@@ -18,9 +18,11 @@ namespace Triangles3D
         public ModelingForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             scene = new Scene();
-            //camera = new Camera();
-            scene.Models.Add(new Brick(new Vector3(0.3f, 0.3f, 0.3f), new Vector3(0.7f, 0.7f, 0.7f)));
+            //scene.Models.Add(new Brick(new Vector3(0.3f, 0.3f, 0.3f), new Vector3(0.7f, 0.7f, 0.7f)));
+            scene.Models.Add(new Triangle(new Vector3(0.1f, 0.1f, 0.1f),new Vector3(0.1f, 0.4f, 0.2f), new Vector3(0.4f, 0.1f, 0.4f)));
+            scene.Models.Add(new Triangle(new Vector3(0.4f, 0.3f, 0.2f), new Vector3(0f, 0.2f, 0.4f), new Vector3(0.5f, 0.1f, 0f)));
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(1, 0, 0)));
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 1, 0)));
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 0, 1)));
