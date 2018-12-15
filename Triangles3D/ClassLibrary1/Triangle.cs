@@ -11,12 +11,16 @@ namespace ClassLibrary1
         public Vector3 A { get; set; }
         public Vector3 B { get; set; }
         public Vector3 C { get; set; }
+        public Plane P { get; set; }
+
+        public Triangle() { }
 
         public Triangle(Vector3 a, Vector3 b, Vector3 c)
         {
             A = a;
             B = b;
             C = c;
+            P = new Plane(a, b, c);
         }
 
         public List<PolyLine3D> GetLines()
@@ -25,6 +29,8 @@ namespace ClassLibrary1
             {new PolyLine3D(new List<Vector3>{A, B, C}, true)};
             return l;
         }
+
+
 
         //turnAroundAxis(axis, angle)
 

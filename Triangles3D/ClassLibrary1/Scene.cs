@@ -16,6 +16,47 @@ namespace ClassLibrary1
             Models = new List<IModel>();
         }
 
+        public static List<PointF> TriangleIntersection(Triangle t1, Triangle t2)
+        {
+            //проверка параллельности/нахождения в одной плоскости
+
+            if (t1.P.A / t2.P.A != t1.P.B / t2.P.B && t1.P.B / t2.P.B != t1.P.C / t2.P.C && t1.P.A / t2.P.A != t1.P.C / t2.P.C)
+            {
+                StraightLine intersection = new StraightLine(t1.P, t2.P);
+
+                //найти пересечение прямой intersection с треугольником (получить отрезки для каждого треугольника)
+                //проверить наложение найденных отрезков
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //List<PointF> l = new List<PointF>();
+
+                //return l;
+
+            }
+            else
+                return new List<PointF>();
+
+
+
+        }
+
+        //public 
+
         public Bitmap DrawAll(Camera cam, Screen scr)
         {
             Bitmap bmp = new Bitmap(scr.Size.Width, scr.Size.Height);
