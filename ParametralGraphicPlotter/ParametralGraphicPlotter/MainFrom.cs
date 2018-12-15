@@ -33,8 +33,10 @@ namespace ParametralGraphicPlotter
 
         private void PlottingPanel_MouseMove(object sender, MouseEventArgs e)
         {
+            PlottingPanel.Focus();
 
-            PlottingPanel.Invalidate();
+
+            //PlottingPanel.Invalidate();
         }
 
         private void PlottingPanel_MouseUp(object sender, MouseEventArgs e)
