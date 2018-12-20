@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sprache.Calc;
 
 namespace ParametralGraphicPlotter
 {
@@ -20,23 +21,31 @@ namespace ParametralGraphicPlotter
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, PlottingPanel, new object[] { true });
+            //conv = new Converter()
         }
 
-        Plotter P;
-        Color BC, LC;
+        Converter conv;
+        Color BC = Color.White, LC = Color.Black;
+        bool dragging = false;
 
         private void PlottingPanel_Paint(object sender, PaintEventArgs e)
         {
             Bitmap b = new Bitmap(PlottingPanel.Width, PlottingPanel.Height);
-            P.DrawRealPlot(b, BC, LC);
+            DrawRealPlot(b, BC, LC, Xtext.Text, Ytext.Text);
+            e.Graphics.DrawImage(b, 0, 0);
+            b.Dispose();
+
         }
 
         private void PlottingPanel_MouseMove(object sender, MouseEventArgs e)
         {
             PlottingPanel.Focus();
+            if(dragging)
+            {
 
 
-            //PlottingPanel.Invalidate();
+                PlottingPanel.Invalidate();
+            }
         }
 
         private void PlottingPanel_MouseUp(object sender, MouseEventArgs e)
@@ -84,6 +93,38 @@ namespace ParametralGraphicPlotter
             PlottingPanel.Invalidate();
         }
 
+        
+
+        private void DrawRealPlot(Bitmap bit, Color LineColor, Color BackColor, string xt, string yt)
+        {
+            XtensibleCalculator c = new XtensibleCalculator();
+
+            var exp = c.ParseFunction(xt);
+            var fx = exp.Compile();
+            exp = c.ParseFunction(yt);
+            var fy = exp.Compile();
+            Dictionary<string, double> Dict = new Dictionary<string, double>();
+            Dict.Add("t", 0);
+
+            for (int i = -bit.Width / 2; i < bit.Width/2; i++ )
+            {
+                Dict["t"] = i;
+
+                bit.SetPixel(conv.II(fx(Dict)), conv.JJ(fy(Dict)), LineColor);
+                
+                
+                //var calc = new Sprache.Calc.XtensibleCalculator();
+
+                // using expressions
+                //var expr = calc.ParseExpression("Sin(y/x)", x => 2, y => System.Math.PI);
+                //var func = expr.Compile();
+
+
+            }
+
+
+        }
+
     }
 }
 
@@ -106,3 +147,27 @@ namespace ParametralGraphicPlotter
      и параметра t при нажатии на правую кнопку.
      
      */
+
+
+/*
+
+
+
+
+ Usage example
+
+var calc = new Sprache.Calc.XtensibleCalculator();
+
+// using expressions
+var expr = calc.ParseExpression("Sin(y/x)", x => 2, y => System.Math.PI);
+var func = expr.Compile();
+Console.WriteLine("Result = {0}", func());
+
+// custom functions
+calc.RegisterFunction("Mul", (a, b, c) => a * b * c);
+expr = calc.ParseExpression("2 ^ Mul(PI, a, b)", a => 2, b => 10);
+Console.WriteLine("Result = {0}", func.Compile()());
+
+    
+
+ */

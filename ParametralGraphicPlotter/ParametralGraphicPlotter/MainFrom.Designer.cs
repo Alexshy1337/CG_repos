@@ -31,8 +31,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PlottingPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Ytext = new System.Windows.Forms.TextBox();
+            this.Xtext = new System.Windows.Forms.TextBox();
+            this.NewFunc = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LineColorButton = new System.Windows.Forms.Button();
             this.BackColorButton = new System.Windows.Forms.Button();
@@ -73,8 +76,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.Ytext);
+            this.panel2.Controls.Add(this.Xtext);
+            this.panel2.Controls.Add(this.NewFunc);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(594, 3);
@@ -82,38 +88,65 @@
             this.panel2.Size = new System.Drawing.Size(203, 444);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "New Function?";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(8, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 18);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "y(t)";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(58, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(8, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "x(t)";
+            // 
+            // Ytext
+            // 
+            this.Ytext.Location = new System.Drawing.Point(43, 66);
+            this.Ytext.Name = "Ytext";
+            this.Ytext.Size = new System.Drawing.Size(151, 20);
+            this.Ytext.TabIndex = 6;
+            this.Ytext.Text = "Sin(t)";
+            // 
+            // Xtext
+            // 
+            this.Xtext.Location = new System.Drawing.Point(43, 40);
+            this.Xtext.Name = "Xtext";
+            this.Xtext.Size = new System.Drawing.Size(151, 20);
+            this.Xtext.TabIndex = 5;
+            this.Xtext.Text = "Cos(t)";
+            // 
+            // NewFunc
+            // 
+            this.NewFunc.Location = new System.Drawing.Point(79, 106);
+            this.NewFunc.Name = "NewFunc";
+            this.NewFunc.Size = new System.Drawing.Size(75, 39);
+            this.NewFunc.TabIndex = 3;
+            this.NewFunc.Text = "New function";
+            this.NewFunc.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.LineColorButton);
             this.groupBox1.Controls.Add(this.BackColorButton);
-            this.groupBox1.Location = new System.Drawing.Point(27, 360);
+            this.groupBox1.Location = new System.Drawing.Point(66, 199);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(127, 81);
+            this.groupBox1.Size = new System.Drawing.Size(102, 81);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change color";
             // 
             // LineColorButton
             // 
-            this.LineColorButton.Location = new System.Drawing.Point(31, 51);
+            this.LineColorButton.Location = new System.Drawing.Point(13, 52);
             this.LineColorButton.Name = "LineColorButton";
             this.LineColorButton.Size = new System.Drawing.Size(77, 23);
             this.LineColorButton.TabIndex = 1;
@@ -123,7 +156,7 @@
             // 
             // BackColorButton
             // 
-            this.BackColorButton.Location = new System.Drawing.Point(31, 23);
+            this.BackColorButton.Location = new System.Drawing.Point(13, 24);
             this.BackColorButton.Name = "BackColorButton";
             this.BackColorButton.Size = new System.Drawing.Size(77, 22);
             this.BackColorButton.TabIndex = 0;
@@ -155,9 +188,12 @@
         private System.Windows.Forms.ColorDialog MyColorDialog;
         private System.Windows.Forms.Button LineColorButton;
         private System.Windows.Forms.Button BackColorButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NewFunc;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Ytext;
+        private System.Windows.Forms.TextBox Xtext;
     }
 }
 
