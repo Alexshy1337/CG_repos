@@ -15,7 +15,11 @@ namespace ClassLibrary1
         {
             Models = new List<IModel>();
         }
-
+        /*
+         
+             
+             
+             
         public static List<PointF> TriangleIntersection(Triangle t1, Triangle t2)
         {
             //плоскости не параллельны
@@ -77,6 +81,10 @@ namespace ClassLibrary1
 
         }
 
+
+
+
+             */
         //public 
 
         public Bitmap DrawAll(Camera cam, Screen scr)
