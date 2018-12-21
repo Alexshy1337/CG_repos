@@ -18,9 +18,12 @@ namespace ClassLibrary1
 
         public static List<PointF> TriangleIntersection(Triangle t1, Triangle t2)
         {
-            //проверка параллельности/нахождения в одной плоскости
-
-            if (t1.P.A / t2.P.A != t1.P.B / t2.P.B && t1.P.B / t2.P.B != t1.P.C / t2.P.C && t1.P.A / t2.P.A != t1.P.C / t2.P.C)
+            //плоскости не параллельны
+            if (t1.P.A / t2.P.A != t1.P.B / t2.P.B
+                &&
+                t1.P.B / t2.P.B != t1.P.C / t2.P.C
+                &&
+                t1.P.A / t2.P.A != t1.P.C / t2.P.C)
             {
                 StraightLine intersection = new StraightLine(t1.P, t2.P);
 
@@ -49,7 +52,26 @@ namespace ClassLibrary1
 
             }
             else
+            
+            //лежат в одной плоскости
+            if (t1.P.A / t2.P.A == t1.P.B / t2.P.B
+                &&
+                t1.P.B / t2.P.B == t1.P.C / t2.P.C
+                &&
+                t1.P.A / t2.P.A == t1.P.C / t2.P.C 
+                &&
+                t1.P.D == t2.P.D)
+            {
+
+
+
+
+            } else
+                //параллельны в несовпадающих плоскостях
                 return new List<PointF>();
+
+
+            //проверить параллельность, нахождение в одной плоскости и обычное пересечение
 
 
 
