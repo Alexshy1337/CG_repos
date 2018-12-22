@@ -29,7 +29,7 @@ namespace ClassLibrary1
             ||
             t1.P.A / t2.P.A != t1.P.C / t2.P.C)
             {
-                Ray intersection = new Ray(t1.P, t2.P);
+                StraightLine intersection = new StraightLine(t1.P, t2.P);
 
                 //найти пересечение прямой intersection с треугольником (получить отрезки для каждого треугольника)
                 //проверить наложение найденных отрезков
@@ -74,14 +74,11 @@ namespace ClassLibrary1
                 return new List<PointF>();
 
 
-            //проверить параллельность, нахождение в одной плоскости и обычное пересечение
-
-
 
         }
 
 
-        private void TriangleAndStraightLine(Triangle t1, Ray theLine, out Vector3 p1, out Vector3 p2)
+        private void TriangleAndStraightLine(Triangle t1, StraightLine theLine, out Vector3 p1, out Vector3 p2)
         {
             p1 = p2 = new Vector3();
 

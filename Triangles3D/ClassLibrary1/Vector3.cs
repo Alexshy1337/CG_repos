@@ -57,5 +57,10 @@ namespace ClassLibrary1
         {
             return new Vector3(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
         }
+
+        public static Vector3 Vector_Multiplication_OfVectors(Vector3 a, Vector3 b)
+        {
+            return new Vector3((a.Y * b.Z - a.Z * b.Y), - (a.X * b.Z - a.Z * b.X), (a.X * b.Y - a.Y * b.X));
+        }
     }
 }
