@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class StraightLine
+    public class Ray
     {
         public float A { get; set; }
         public float B { get; set; }
@@ -14,9 +14,9 @@ namespace ClassLibrary1
         public float D { get; set; }
         public Vector3 DirVector { get; set; }
 
-        public StraightLine() { }
+        public Ray() { }
 
-        public StraightLine(Plane pl1, Plane pl2)
+        public Ray(Plane pl1, Plane pl2)
         {
             A = pl1.A - pl2.A;
             B = pl1.B - pl2.B;
@@ -25,14 +25,6 @@ namespace ClassLibrary1
             DirVector = new Vector3(A, B, C);
         }
 
-        //public void IntersectionOfPlanes(Plane pl1, Plane pl2)
-        //{
-        //    A = pl1.A - pl2.A;
-        //    B = pl1.B - pl2.B;
-        //    C = pl1.C - pl2.C;
-        //    D = pl1.D - pl2.D;
-        //    DirVector = new Vector3(A, B, C);
-        //}
 
 
 

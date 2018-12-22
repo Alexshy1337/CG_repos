@@ -15,21 +15,21 @@ namespace ClassLibrary1
         {
             Models = new List<IModel>();
         }
-        /*
-         
-             
-             
-             
+
+
+
+
+
         public static List<PointF> TriangleIntersection(Triangle t1, Triangle t2)
         {
             //плоскости не параллельны
             if (t1.P.A / t2.P.A != t1.P.B / t2.P.B
-                &&
-                t1.P.B / t2.P.B != t1.P.C / t2.P.C
-                &&
-                t1.P.A / t2.P.A != t1.P.C / t2.P.C)
+            ||
+            t1.P.B / t2.P.B != t1.P.C / t2.P.C
+            ||
+            t1.P.A / t2.P.A != t1.P.C / t2.P.C)
             {
-                StraightLine intersection = new StraightLine(t1.P, t2.P);
+                Ray intersection = new Ray(t1.P, t2.P);
 
                 //найти пересечение прямой intersection с треугольником (получить отрезки для каждого треугольника)
                 //проверить наложение найденных отрезков
@@ -55,23 +55,22 @@ namespace ClassLibrary1
                 //return l;
 
             }
-            else
-            
-            //лежат в одной плоскости
+            else//лежат в одной плоскости
+
             if (t1.P.A / t2.P.A == t1.P.B / t2.P.B
-                &&
-                t1.P.B / t2.P.B == t1.P.C / t2.P.C
-                &&
-                t1.P.A / t2.P.A == t1.P.C / t2.P.C 
-                &&
-                t1.P.D == t2.P.D)
+            &&
+            t1.P.B / t2.P.B == t1.P.C / t2.P.C
+            &&
+            t1.P.A / t2.P.A == t1.P.C / t2.P.C
+            &&
+            t1.P.D == t2.P.D)
             {
 
 
 
 
-            } else
-                //параллельны в несовпадающих плоскостях
+            }
+            else //параллельны в несовпадающих плоскостях
                 return new List<PointF>();
 
 
@@ -82,10 +81,29 @@ namespace ClassLibrary1
         }
 
 
+        private void TriangleAndStraightLine(Triangle t1, Ray theLine, out Vector3 p1, out Vector3 p2)
+        {
+            p1 = p2 = new Vector3();
+
+            //ab x line 
+            //if(new StraightLine(t1.A, t1.B)) 
+
+            //bc x line 
+
+            //ac x line 
 
 
-             */
-        //public 
+
+
+
+
+
+
+        }
+
+
+
+
 
         public Bitmap DrawAll(Camera cam, Screen scr)
         {
@@ -95,8 +113,8 @@ namespace ClassLibrary1
             // process of drawing
             List<PolyLine3D> lines = new List<PolyLine3D>();
 
-            foreach(IModel m in Models)
-                foreach(PolyLine3D pl in m.GetLines()) // поворот всех точек в систему координат камеры
+            foreach (IModel m in Models)
+                foreach (PolyLine3D pl in m.GetLines()) // поворот всех точек в систему координат камеры
                 {
                     List<Vector3> vl = new List<Vector3>();
                     foreach (Vector3 v in pl.Vertices)
@@ -105,7 +123,7 @@ namespace ClassLibrary1
                 }
 
             //sort набор линий так, чтобы те, которые дальше экрана, были в начале списка lines.Sort(); (важно в случае полигонов)
-            foreach(var pl in lines)
+            foreach (var pl in lines)
             {
                 List<Point> points = new List<Point>();
                 foreach (Vector3 v in pl.Vertices)
