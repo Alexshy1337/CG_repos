@@ -11,33 +11,34 @@ namespace ClassLibrary1
         public Vector3 point { get; set; }
         public Vector3 DirVector { get; set; }
 
-
-
         public StraightLine() { }
 
-        public StraightLine(Plane pl1, Plane pl2)
+        public StraightLine(Vector3 a, Vector3 b)
         {
-            DirVector = new Vector3(pl1.A - pl2.A, pl1.B - pl2.B, pl1.C - pl2.C);
+            DirVector = new Vector3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            point = a;
         }
 
-        public Vector3 GetOnePoint(Plane a, Plane b)
-        {
-            if (a.A / b.A != a.B / b.B
-                ||
-                a.B / b.B != a.C / b.C
-                ||
-                a.A / b.A != a.C / b.C) 
-            {
-                if(a.A !=0 && b.A !=0)
-                
+        //public Vector3 IntersectionWithLine(StraightLine l)//если знаем, что они в одной плоскости
+        //{
+        //    if (l.DirVector.X / DirVector.X == l.DirVector.Y / DirVector.Y ||
+        //        l.DirVector.Z / DirVector.Z == l.DirVector.Y / DirVector.Y ||
+        //        l.DirVector.X / DirVector.X == l.DirVector.Z / DirVector.Z)
+        //        return new Vector3();
+        //    else
+        //    {
+        //        float t;
+        //        if(
+        //            (l.point.X - point.X) / (DirVector.X - l.DirVector.X) == (l.point.Y - point.Y) / (DirVector.Y - l.DirVector.Y)
+        //            &&
+        //            (l.point.Y - point.Y) / (DirVector.Y - l.DirVector.Y) == (l.point.Z - point.Z) / (DirVector.Z - l.DirVector.Z)
+        //            )
+        //        {
+        //            t = (l.point.X - point.X) / (DirVector.X - l.DirVector.X);
+        //        }
+        //    }
 
-                return new Vector3();
-            } else
-
-
-                return new Vector3();
-        }
-
+        //}
 
         public static float determinant3 (float a11, float a12, float a13, float a21, float a22, float a23, float a31, float a32, float a33)
         {

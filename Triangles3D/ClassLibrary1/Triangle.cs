@@ -8,25 +8,24 @@ namespace ClassLibrary1
 {
     public class Triangle : IModel
     {
-        public Vector3 A { get; set; }
-        public Vector3 B { get; set; }
-        public Vector3 C { get; set; }
-        public Plane P { get; set; }
+        public Vector3[] Points { get; set; }
+        public Plane plane { get; set; }
 
         public Triangle() { }
 
         public Triangle(Vector3 a, Vector3 b, Vector3 c)
         {
-            A = a;
-            B = b;
-            C = c;
-            P = new Plane(a, b, c);
+            Points = new Vector3[3];
+            Points[0] = a;
+            Points[1] = b;
+            Points[2] = c;
+            plane = new Plane(a, b, c);
         }
 
         public List<PolyLine3D> GetLines()
         {
             List<PolyLine3D> l = new List<PolyLine3D>
-            {new PolyLine3D(new List<Vector3>{A, B, C}, true)};
+            {new PolyLine3D(new List<Vector3>{Points[0],Points[1],Points[2]}, true)};
             return l;
         }
 

@@ -27,25 +27,33 @@ namespace ClassLibrary1
             N = new Vector3(A, B, C);
         }
 
-        public Vector3 IntersectionWithLine(Vector3 v)
+        public Vector3 IntersectionWithLine(StraightLine l)
         {
-            Vector3 p = new Vector3();
-
-
-
-
-            return p;
+            float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X) / Vector3.ScalarMultiplication(l.DirVector, N);
+            return new Vector3((l.point.X + t * l.DirVector.X), (l.point.Y + t * l.DirVector.Y), (l.point.Z + t * l.DirVector.Z));
         }
 
-        //public void PlaneFromThreePoints(Vector3 a, Vector3 b, Vector3 c)
-        //{
-        //    A = (b.Y - a.Y) * (c.Z - a.Z) - (c.Y - a.Y) * (b.Z - a.Z);
-        //    B = (c.X - a.X) * (b.Z - a.Z) - (b.X - a.X) * (c.Z - a.Z);
-        //    C = (b.X - a.X) * (c.Y - a.Y) - (c.X - a.X) * (b.Y - a.Y);
-        //    D = -a.X * ((b.Y - a.Y) * (c.Z - a.Z) - (c.Y - a.Y) * (b.Z - a.Z))
-        //        - a.Y * ((c.X - a.X) * (b.Z - a.Z) - (b.X - a.X) * (c.Z - a.Z))
-        //        - a.Z * ((b.X - a.X) * (c.Y - a.Y) - (c.X - a.X) * (b.Y - a.Y));
-        //    N = new Vector3(A, B, C);
-        //}
+        public static bool operator ==(Plane a, Plane b)
+        {
+            return (a.A / b.A == a.B / b.B
+            &&
+            a.B / b.B == a.C / b.C
+            &&
+            a.A / b.A == a.C / b.C
+            &&
+            a.D == b.D);
+        }
+
+        public static bool operator !=(Plane a, Plane b)
+        {
+            return (a.A / b.A != a.B / b.B
+            ||
+            a.B / b.B != a.C / b.C
+            ||
+            a.A / b.A != a.C / b.C
+            ||
+            a.D != b.D);
+        }
+
     }
 }

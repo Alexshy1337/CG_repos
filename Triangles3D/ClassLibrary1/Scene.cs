@@ -16,87 +16,121 @@ namespace ClassLibrary1
             Models = new List<IModel>();
         }
 
+        public static bool LineSegmentContainsPoint(Vector3 a, Vector3 b, Vector3 p)
+        {
+            return
+            (Math.Min(a.X, b.X) <= p.X && p.X <= Math.Max(a.X, b.X))
+            &&
+            (Math.Min(a.Y, b.Y) <= p.Y && p.Y <= Math.Max(a.Y, b.Y))
+            &&
+            (Math.Min(a.Z, b.Z) <= p.Z && p.Z <= Math.Max(a.Z, b.Z));
+        }
 
+        public static List<Vector3> LineSegmentsOverlap(List<Vector3> a, List<Vector3> b)
+        {
+            if (a.Count == 0 || b.Count == 0)
+                return new List<Vector3>();
+            else if (a.Count == 1 && b.Count == 1)
+                return (a[0] == b[0]) ? a : new List<Vector3>();
+            else if(a.Count == 1 && b.Count == 2)
+                return (LineSegmentContainsPoint(b[0], b[1], a[0])) ? a : new List<Vector3>();
+            else if(a.Count == 2 && b.Count == 1)
+                return (LineSegmentContainsPoint(a[0], a[1], b[0])) ? b : new List<Vector3>();
+            else
+            {
+                if (LineSegmentContainsPoint(a[0], a[1], b[0]))
+                {
+                    if (LineSegmentContainsPoint(a[0], a[1], b[1]))
+                        return b;
+                    else
+                    {
+                        List<Vector3> q = new List<Vector3>();
+                        q.Add(b[0]);
 
+                        if (LineSegmentContainsPoint(b[0], b[1], a[0]))
+                            q.Add(a[0]);
+                        else
+                            q.Add(a[1]);
 
+                        return q;
+                    }
+                }
 
-        public static List<PointF> TriangleIntersection(Triangle t1, Triangle t2)
+                else if (LineSegmentContainsPoint(a[0], a[1], b[1]))
+                {
+                    if (LineSegmentContainsPoint(a[0], a[1], b[0]))
+                        return b;
+                    else
+                    {
+                        List<Vector3> q = new List<Vector3>();
+                        q.Add(b[1]);
+
+                        if (LineSegmentContainsPoint(b[0], b[1], a[0]))
+                            q.Add(a[0]);
+                        else
+                            q.Add(a[1]);
+
+                        return q;
+                    }
+
+                }
+
+                else if (LineSegmentContainsPoint(b[0], b[1], a[0]) && LineSegmentContainsPoint(b[0], b[1], a[1]))
+                    return a;
+
+                else return new List<Vector3>();
+            }
+        }
+
+        public static List<Vector3> TriangleIntersection(Triangle t1, Triangle t2)
         {
             //плоскости не параллельны
-            if (t1.P.A / t2.P.A != t1.P.B / t2.P.B
+            if (t1.plane.A / t2.plane.A != t1.plane.B / t2.plane.B
             ||
-            t1.P.B / t2.P.B != t1.P.C / t2.P.C
+            t1.plane.B / t2.plane.B != t1.plane.C / t2.plane.C
             ||
-            t1.P.A / t2.P.A != t1.P.C / t2.P.C)
+            t1.plane.A / t2.plane.A != t1.plane.C / t2.plane.C)
             {
-                StraightLine intersection = new StraightLine(t1.P, t2.P);
+                List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
+                for (int i = 1; i < 3; i++)
+                {
+                    Vector3 temp = t1.plane.IntersectionWithLine(new StraightLine(t2.Points[i - 1], t2.Points[i]));
+                    if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
+                        I2.Add(temp);
 
-                //найти пересечение прямой intersection с треугольником (получить отрезки для каждого треугольника)
-                //проверить наложение найденных отрезков
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                //List<PointF> l = new List<PointF>();
-
-                //return l;
-
+                    temp = t2.plane.IntersectionWithLine(new StraightLine(t1.Points[i - 1], t1.Points[i]));
+                    if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
+                        I1.Add(temp);
+                }
+                I1 = (List<Vector3>)I1.Distinct();
+                I2 = (List<Vector3>)I2.Distinct();
+                return LineSegmentsOverlap(I1, I2);
             }
-            else//лежат в одной плоскости
-
-            if (t1.P.A / t2.P.A == t1.P.B / t2.P.B
-            &&
-            t1.P.B / t2.P.B == t1.P.C / t2.P.C
-            &&
-            t1.P.A / t2.P.A == t1.P.C / t2.P.C
-            &&
-            t1.P.D == t2.P.D)
+            else if (t1.plane == t2.plane)
             {
 
+                //List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
+                //for (int i = 1; i < 3; i++)
+                //{
+                //    Vector3 temp = t1.plane.IntersectionWithLine(new StraightLine(t2.Points[i - 1], t2.Points[i]));
+                //    if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
+                //        I2.Add(temp);
+
+                //    temp = t2.plane.IntersectionWithLine(new StraightLine(t1.Points[i - 1], t1.Points[i]));
+                //    if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
+                //        I1.Add(temp);
+                //}
 
 
-
+                return new List<Vector3>();
             }
-            else //параллельны в несовпадающих плоскостях
-                return new List<PointF>();
+            else //параллельны
+                return new List<Vector3>();
 
 
 
         }
 
-
-        private void TriangleAndStraightLine(Triangle t1, StraightLine theLine, out Vector3 p1, out Vector3 p2)
-        {
-            p1 = p2 = new Vector3();
-
-            //ab x line 
-            //if(new StraightLine(t1.A, t1.B)) 
-
-            //bc x line 
-
-            //ac x line 
-
-
-
-
-
-
-
-
-        }
 
 
 
