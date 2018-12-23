@@ -82,6 +82,15 @@ namespace ClassLibrary1
             }
         }
 
+        private static void DeleteRepetitions(List<Vector3> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+                for (int j = 0; j < list.Count; j++)
+                    if (i != j)
+                        if (list[i] == list[j])
+                            list.Remove(list[j]);
+        }
+
         public static List<Vector3> TriangleIntersection(Triangle t1, Triangle t2)
         {
             //плоскости не параллельны
@@ -92,6 +101,7 @@ namespace ClassLibrary1
             t1.plane.A / t2.plane.A != t1.plane.C / t2.plane.C)
             {
                 List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
+                ;
                 for (int i = 1; i < 3; i++)
                 {
                     Vector3 temp = t1.plane.Intersection(new StraightLine(t2.Points[i - 1], t2.Points[i]));
@@ -102,8 +112,9 @@ namespace ClassLibrary1
                     if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
                         I1.Add(temp);
                 }
-                I1 = (List<Vector3>)I1.Distinct();
-                I2 = (List<Vector3>)I2.Distinct();
+
+                DeleteRepetitions(I1);
+                DeleteRepetitions(I2);
                 return LineSegmentsOverlap(I1, I2);
             }
 
