@@ -22,15 +22,10 @@ namespace ClassLibrary1
             plane = new Plane(a, b, c);
         }
 
-        public void UpdatePlane()
-        {
-            plane = new Plane(Points[0], Points[1], Points[2]);
-        }
-
         public List<PolyLine3D> GetLines()
         {
             List<PolyLine3D> l = new List<PolyLine3D>
-            {new PolyLine3D(new List<Vector3>{Points[0], Points[1], Points[2]}, true)};
+            {new PolyLine3D(new List<Vector3>{Points[0],Points[1],Points[2]}, true)};
             return l;
         }
 

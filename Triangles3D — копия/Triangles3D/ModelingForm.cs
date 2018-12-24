@@ -29,23 +29,15 @@ namespace Triangles3D
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, MainPanel, new object[] { true });
-            Reset();
-        }
 
-        private void Reset()
-        {
             scene = new Scene();
             scene.Models.Add(t1);
             scene.Models.Add(t2);
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(1, 0, 0)));
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 1, 0)));
             scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 0, 1)));
-
-            UPDbutton_Click(new object(), new EventArgs());
-
             camera = new Camera();
             last = new Point();
-            MainPanel.Invalidate();
         }
 
 
@@ -82,12 +74,10 @@ namespace Triangles3D
             t1.Points[0] = new Vector3((float)(t1ax.Value / 10), (float)(t1ay.Value / 10), (float)(t1az.Value / 10));
             t1.Points[1] = new Vector3((float)(t1bx.Value / 10), (float)(t1by.Value / 10), (float)(t1bz.Value / 10));
             t1.Points[2] = new Vector3((float)(t1cx.Value / 10), (float)(t1cy.Value / 10), (float)(t1cz.Value / 10));
-            t1.UpdatePlane();
 
             t2.Points[0] = new Vector3((float)(t2ax.Value / 10), (float)(t2ay.Value / 10), (float)(t2az.Value / 10));
             t2.Points[1] = new Vector3((float)(t2bx.Value / 10), (float)(t2by.Value / 10), (float)(t2bz.Value / 10));
             t2.Points[2] = new Vector3((float)(t2cx.Value / 10), (float)(t2cy.Value / 10), (float)(t2cz.Value / 10));
-            t2.UpdatePlane();
 
             MainPanel.Invalidate();
         }
@@ -105,13 +95,10 @@ namespace Triangles3D
         private void IntButton_Click(object sender, EventArgs e)
         {
             List<Vector3> points = Scene.TriangleIntersection(t1, t2);
-            if(points.Count > 0)
+
+            for(int i = 0; i < points.Count; i++)
             {
-                scene.Models.Add(new PolyLine3D(points, Color.Red, true));
-                AnswerTextBox.Text = "";
-                for (int i = 0; i < points.Count; i++)
-                    AnswerTextBox.Text += "(" + (points[i].X * 10).ToString() + ", " + (points[i].Y * 10).ToString() + ", " + (points[i].Z * 10).ToString() + ")";
-                MainPanel.Invalidate();
+                AnswerTextBox.Text += points[i].X.ToString() + "";
             }
         }
     }

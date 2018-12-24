@@ -30,65 +30,65 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.t1ax = new System.Windows.Forms.NumericUpDown();
-            this.t1ay = new System.Windows.Forms.NumericUpDown();
-            this.t1az = new System.Windows.Forms.NumericUpDown();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.t2cz = new System.Windows.Forms.NumericUpDown();
             this.t2ax = new System.Windows.Forms.NumericUpDown();
             this.t2ay = new System.Windows.Forms.NumericUpDown();
             this.t2az = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.t2bx = new System.Windows.Forms.NumericUpDown();
+            this.t2by = new System.Windows.Forms.NumericUpDown();
+            this.t2cy = new System.Windows.Forms.NumericUpDown();
+            this.t2bz = new System.Windows.Forms.NumericUpDown();
+            this.t2cx = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.t1cz = new System.Windows.Forms.NumericUpDown();
+            this.t1ax = new System.Windows.Forms.NumericUpDown();
+            this.t1ay = new System.Windows.Forms.NumericUpDown();
+            this.t1az = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.t1bx = new System.Windows.Forms.NumericUpDown();
             this.t1by = new System.Windows.Forms.NumericUpDown();
             this.t1bz = new System.Windows.Forms.NumericUpDown();
             this.t1cx = new System.Windows.Forms.NumericUpDown();
             this.t1cy = new System.Windows.Forms.NumericUpDown();
-            this.t1cz = new System.Windows.Forms.NumericUpDown();
-            this.t2bx = new System.Windows.Forms.NumericUpDown();
-            this.t2by = new System.Windows.Forms.NumericUpDown();
-            this.t2bz = new System.Windows.Forms.NumericUpDown();
-            this.t2cx = new System.Windows.Forms.NumericUpDown();
-            this.t2cy = new System.Windows.Forms.NumericUpDown();
-            this.t2cz = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.AnswerTextBox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.IntButton = new System.Windows.Forms.Button();
             this.UPDbutton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.IntButton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.AnswerTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.t1ax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1ay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1az)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2ax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2ay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2az)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2bx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2by)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2bz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cx)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.t1cz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1ax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1ay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1az)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1bx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1by)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1bz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1cx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1cy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1cz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2bx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2by)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2bz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cz)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -118,46 +118,60 @@
             this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
             this.MainPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseUp);
             // 
-            // t1ax
+            // panel2
             // 
-            this.t1ax.Location = new System.Drawing.Point(22, 32);
-            this.t1ax.Minimum = new decimal(new int[] {
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.UPDbutton);
+            this.panel2.Controls.Add(this.IntButton);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.AnswerTextBox);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(790, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(171, 494);
+            this.panel2.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.t2cz);
+            this.groupBox2.Controls.Add(this.t2ax);
+            this.groupBox2.Controls.Add(this.t2ay);
+            this.groupBox2.Controls.Add(this.t2az);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.t2bx);
+            this.groupBox2.Controls.Add(this.t2by);
+            this.groupBox2.Controls.Add(this.t2cy);
+            this.groupBox2.Controls.Add(this.t2bz);
+            this.groupBox2.Controls.Add(this.t2cx);
+            this.groupBox2.Location = new System.Drawing.Point(4, 194);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(162, 124);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Triangle 2";
+            // 
+            // t2cz
+            // 
+            this.t2cz.Location = new System.Drawing.Point(117, 90);
+            this.t2cz.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             -2147483648});
-            this.t1ax.Name = "t1ax";
-            this.t1ax.Size = new System.Drawing.Size(40, 20);
-            this.t1ax.TabIndex = 0;
-            this.t1ax.Value = new decimal(new int[] {
+            this.t2cz.Name = "t2cz";
+            this.t2cz.Size = new System.Drawing.Size(40, 20);
+            this.t2cz.TabIndex = 25;
+            this.t2cz.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // t1ay
-            // 
-            this.t1ay.Location = new System.Drawing.Point(22, 58);
-            this.t1ay.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t1ay.Name = "t1ay";
-            this.t1ay.Size = new System.Drawing.Size(40, 20);
-            this.t1ay.TabIndex = 1;
-            // 
-            // t1az
-            // 
-            this.t1az.Location = new System.Drawing.Point(22, 84);
-            this.t1az.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t1az.Name = "t1az";
-            this.t1az.Size = new System.Drawing.Size(40, 20);
-            this.t1az.TabIndex = 2;
             // 
             // t2ax
             // 
@@ -170,11 +184,6 @@
             this.t2ax.Name = "t2ax";
             this.t2ax.Size = new System.Drawing.Size(40, 20);
             this.t2ax.TabIndex = 3;
-            this.t2ax.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
             // 
             // t2ay
             // 
@@ -199,6 +208,235 @@
             this.t2az.Name = "t2az";
             this.t2az.Size = new System.Drawing.Size(40, 20);
             this.t2az.TabIndex = 5;
+            this.t2az.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(5, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(14, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "X";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(128, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(14, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "C";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 66);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Y";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(79, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "B";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Z";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "A";
+            // 
+            // t2bx
+            // 
+            this.t2bx.Location = new System.Drawing.Point(71, 38);
+            this.t2bx.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t2bx.Name = "t2bx";
+            this.t2bx.Size = new System.Drawing.Size(40, 20);
+            this.t2bx.TabIndex = 20;
+            this.t2bx.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // t2by
+            // 
+            this.t2by.Location = new System.Drawing.Point(71, 64);
+            this.t2by.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t2by.Name = "t2by";
+            this.t2by.Size = new System.Drawing.Size(40, 20);
+            this.t2by.TabIndex = 21;
+            // 
+            // t2cy
+            // 
+            this.t2cy.Location = new System.Drawing.Point(117, 64);
+            this.t2cy.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t2cy.Name = "t2cy";
+            this.t2cy.Size = new System.Drawing.Size(40, 20);
+            this.t2cy.TabIndex = 24;
+            // 
+            // t2bz
+            // 
+            this.t2bz.Location = new System.Drawing.Point(71, 90);
+            this.t2bz.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t2bz.Name = "t2bz";
+            this.t2bz.Size = new System.Drawing.Size(40, 20);
+            this.t2bz.TabIndex = 22;
+            // 
+            // t2cx
+            // 
+            this.t2cx.Location = new System.Drawing.Point(117, 38);
+            this.t2cx.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t2cx.Name = "t2cx";
+            this.t2cx.Size = new System.Drawing.Size(40, 20);
+            this.t2cx.TabIndex = 23;
+            this.t2cx.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.t1cz);
+            this.groupBox1.Controls.Add(this.t1ax);
+            this.groupBox1.Controls.Add(this.t1ay);
+            this.groupBox1.Controls.Add(this.t1az);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.t1bx);
+            this.groupBox1.Controls.Add(this.t1by);
+            this.groupBox1.Controls.Add(this.t1bz);
+            this.groupBox1.Controls.Add(this.t1cx);
+            this.groupBox1.Controls.Add(this.t1cy);
+            this.groupBox1.Location = new System.Drawing.Point(4, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(162, 109);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Triangle 1";
+            // 
+            // t1cz
+            // 
+            this.t1cz.Location = new System.Drawing.Point(114, 84);
+            this.t1cz.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t1cz.Name = "t1cz";
+            this.t1cz.Size = new System.Drawing.Size(40, 20);
+            this.t1cz.TabIndex = 19;
+            this.t1cz.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // t1ax
+            // 
+            this.t1ax.Location = new System.Drawing.Point(22, 32);
+            this.t1ax.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t1ax.Name = "t1ax";
+            this.t1ax.Size = new System.Drawing.Size(40, 20);
+            this.t1ax.TabIndex = 0;
+            // 
+            // t1ay
+            // 
+            this.t1ay.Location = new System.Drawing.Point(22, 58);
+            this.t1ay.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t1ay.Name = "t1ay";
+            this.t1ay.Size = new System.Drawing.Size(40, 20);
+            this.t1ay.TabIndex = 1;
+            // 
+            // t1az
+            // 
+            this.t1az.Location = new System.Drawing.Point(22, 84);
+            this.t1az.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.t1az.Name = "t1az";
+            this.t1az.Size = new System.Drawing.Size(40, 20);
+            this.t1az.TabIndex = 2;
+            this.t1az.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(128, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(14, 13);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "C";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(79, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(14, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "B";
             // 
             // label3
             // 
@@ -208,6 +446,15 @@
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "X";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(32, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(14, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "A";
             // 
             // label4
             // 
@@ -226,33 +473,6 @@
             this.label5.Size = new System.Drawing.Size(14, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Z";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "X";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Y";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(14, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Z";
             // 
             // t1bx
             // 
@@ -318,185 +538,11 @@
             this.t1cy.Name = "t1cy";
             this.t1cy.Size = new System.Drawing.Size(40, 20);
             this.t1cy.TabIndex = 18;
-            // 
-            // t1cz
-            // 
-            this.t1cz.Location = new System.Drawing.Point(114, 84);
-            this.t1cz.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t1cz.Name = "t1cz";
-            this.t1cz.Size = new System.Drawing.Size(40, 20);
-            this.t1cz.TabIndex = 19;
-            this.t1cz.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            // 
-            // t2bx
-            // 
-            this.t2bx.Location = new System.Drawing.Point(71, 38);
-            this.t2bx.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2bx.Name = "t2bx";
-            this.t2bx.Size = new System.Drawing.Size(40, 20);
-            this.t2bx.TabIndex = 20;
-            // 
-            // t2by
-            // 
-            this.t2by.Location = new System.Drawing.Point(71, 64);
-            this.t2by.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2by.Name = "t2by";
-            this.t2by.Size = new System.Drawing.Size(40, 20);
-            this.t2by.TabIndex = 21;
-            this.t2by.Value = new decimal(new int[] {
+            this.t1cy.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // t2bz
-            // 
-            this.t2bz.Location = new System.Drawing.Point(71, 90);
-            this.t2bz.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2bz.Name = "t2bz";
-            this.t2bz.Size = new System.Drawing.Size(40, 20);
-            this.t2bz.TabIndex = 22;
-            // 
-            // t2cx
-            // 
-            this.t2cx.Location = new System.Drawing.Point(117, 38);
-            this.t2cx.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2cx.Name = "t2cx";
-            this.t2cx.Size = new System.Drawing.Size(40, 20);
-            this.t2cx.TabIndex = 23;
-            // 
-            // t2cy
-            // 
-            this.t2cy.Location = new System.Drawing.Point(117, 64);
-            this.t2cy.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2cy.Name = "t2cy";
-            this.t2cy.Size = new System.Drawing.Size(40, 20);
-            this.t2cy.TabIndex = 24;
-            // 
-            // t2cz
-            // 
-            this.t2cz.Location = new System.Drawing.Point(117, 90);
-            this.t2cz.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.t2cz.Name = "t2cz";
-            this.t2cz.Size = new System.Drawing.Size(40, 20);
-            this.t2cz.TabIndex = 25;
-            this.t2cz.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "A";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(79, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "B";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(128, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 13);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "C";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(32, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(14, 13);
-            this.label14.TabIndex = 29;
-            this.label14.Text = "A";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(79, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(14, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "B";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(128, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 13);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "C";
-            // 
-            // AnswerTextBox
-            // 
-            this.AnswerTextBox.Location = new System.Drawing.Point(4, 410);
-            this.AnswerTextBox.Name = "AnswerTextBox";
-            this.AnswerTextBox.Size = new System.Drawing.Size(164, 20);
-            this.AnswerTextBox.TabIndex = 32;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(39, 394);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 13);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Intersection Points";
-            // 
-            // IntButton
-            // 
-            this.IntButton.Location = new System.Drawing.Point(29, 453);
-            this.IntButton.Name = "IntButton";
-            this.IntButton.Size = new System.Drawing.Size(128, 23);
-            this.IntButton.TabIndex = 34;
-            this.IntButton.Text = "Find Intersection";
-            this.IntButton.UseVisualStyleBackColor = true;
-            this.IntButton.Click += new System.EventHandler(this.IntButton_Click);
             // 
             // UPDbutton
             // 
@@ -508,67 +554,32 @@
             this.UPDbutton.UseVisualStyleBackColor = true;
             this.UPDbutton.Click += new System.EventHandler(this.UPDbutton_Click);
             // 
-            // panel2
+            // IntButton
             // 
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.UPDbutton);
-            this.panel2.Controls.Add(this.IntButton);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.AnswerTextBox);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(790, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(171, 494);
-            this.panel2.TabIndex = 1;
+            this.IntButton.Location = new System.Drawing.Point(4, 453);
+            this.IntButton.Name = "IntButton";
+            this.IntButton.Size = new System.Drawing.Size(164, 23);
+            this.IntButton.TabIndex = 34;
+            this.IntButton.Text = "Find Intersection";
+            this.IntButton.UseVisualStyleBackColor = true;
+            this.IntButton.Click += new System.EventHandler(this.IntButton_Click);
             // 
-            // groupBox1
+            // label15
             // 
-            this.groupBox1.Controls.Add(this.t1cz);
-            this.groupBox1.Controls.Add(this.t1ax);
-            this.groupBox1.Controls.Add(this.t1ay);
-            this.groupBox1.Controls.Add(this.t1az);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.t1bx);
-            this.groupBox1.Controls.Add(this.t1by);
-            this.groupBox1.Controls.Add(this.t1bz);
-            this.groupBox1.Controls.Add(this.t1cx);
-            this.groupBox1.Controls.Add(this.t1cy);
-            this.groupBox1.Location = new System.Drawing.Point(4, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(162, 109);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Triangle 1";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(36, 321);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Intersection Points";
             // 
-            // groupBox2
+            // AnswerTextBox
             // 
-            this.groupBox2.Controls.Add(this.t2cz);
-            this.groupBox2.Controls.Add(this.t2ax);
-            this.groupBox2.Controls.Add(this.t2ay);
-            this.groupBox2.Controls.Add(this.t2az);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.t2bx);
-            this.groupBox2.Controls.Add(this.t2by);
-            this.groupBox2.Controls.Add(this.t2cy);
-            this.groupBox2.Controls.Add(this.t2bz);
-            this.groupBox2.Controls.Add(this.t2cx);
-            this.groupBox2.Location = new System.Drawing.Point(4, 194);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(162, 124);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Triangle 2";
+            this.AnswerTextBox.Location = new System.Drawing.Point(4, 337);
+            this.AnswerTextBox.Multiline = true;
+            this.AnswerTextBox.Name = "AnswerTextBox";
+            this.AnswerTextBox.Size = new System.Drawing.Size(164, 110);
+            this.AnswerTextBox.TabIndex = 32;
             // 
             // ModelingForm
             // 
@@ -579,30 +590,30 @@
             this.Name = "ModelingForm";
             this.Text = "3d is haaaaaaahrd";
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.t1ax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1ay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1az)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2ax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2ay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t2az)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2bx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2by)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2bz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t2cx)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.t1cz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1ax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1ay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t1az)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1bx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1by)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1bz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1cx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1cy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t1cz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2bx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2by)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2bz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t2cz)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

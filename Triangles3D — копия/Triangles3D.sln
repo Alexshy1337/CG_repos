@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangles3D", "Triangles3D\Triangles3D.csproj", "{C2BF0DC9-754D-4BB1-A6C0-369DAE0B7046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{E02D3B82-03A6-4298-8115-293126B52CF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2BF0DC9-754D-4BB1-A6C0-369DAE0B7046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BF0DC9-754D-4BB1-A6C0-369DAE0B7046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BF0DC9-754D-4BB1-A6C0-369DAE0B7046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BF0DC9-754D-4BB1-A6C0-369DAE0B7046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02D3B82-03A6-4298-8115-293126B52CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02D3B82-03A6-4298-8115-293126B52CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02D3B82-03A6-4298-8115-293126B52CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02D3B82-03A6-4298-8115-293126B52CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACC84917-412F-44E6-912C-0F03FE9C8879}
+	EndGlobalSection
+EndGlobal

@@ -11,15 +11,11 @@ namespace ClassLibrary1
         private float[] crd;
         public Vector3(Vector4 v)
         {
-            crd = new float[] { v.X, v.Y, v.Z };
+            crd = new float[3] { v.X, v.Y, v.Z };
         }
         public Vector3(float x, float y, float z)
         {
             crd = new float[] { x, y, z };
-        }
-        public Vector3(Vector3 a, Vector3 b)
-        {
-            crd = new float[] { a.X - b.X, a.Y - b.Y, a.Z - b.Z };
         }
         public float X {
             get
@@ -52,12 +48,6 @@ namespace ClassLibrary1
             return (v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z);
         }
 
-        public static Vector3 Vector_Multiplication_OfVectors(Vector3 a, Vector3 b)
-        {
-            return new Vector3((a.Y * b.Z - a.Z * b.Y), -(a.X * b.Z - a.Z * b.X), (a.X * b.Y - a.Y * b.X));
-        }
-
-
         public static bool operator ==(Vector3 a, Vector3 b)
         {
             return (a.X == b.X && a.Y == b.Y && a.Z == b.Z);
@@ -76,6 +66,11 @@ namespace ClassLibrary1
         public static Vector3 operator+(Vector3 v1, Vector3 v2)
         {
             return new Vector3(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
+        }
+
+        public static Vector3 Vector_Multiplication_OfVectors(Vector3 a, Vector3 b)
+        {
+            return new Vector3((a.Y * b.Z - a.Z * b.Y), - (a.X * b.Z - a.Z * b.X), (a.X * b.Y - a.Y * b.X));
         }
     }
 }

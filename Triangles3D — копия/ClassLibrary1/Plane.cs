@@ -18,17 +18,12 @@ namespace ClassLibrary1
 
         public Plane(Vector3 a, Vector3 b, Vector3 c)
         {
-            Vector3 w = new Vector3(a, b), v = new Vector3(a, c);
-
-
-            A = v[1] * w[2] - v[2] * w[1];
-
-            B = v[2] * w[0] - v[0] * w[2];
-
-            C = v[0] * w[1] - v[1] * w[0];
-
-            D = a.Y * B - a.X * A - a.Z * C;
-
+            A = (b.Y - a.Y) * (c.Z - a.Z) - (c.Y - a.Y) * (b.Z - a.Z);
+            B = (c.X - a.X) * (b.Z - a.Z) - (b.X - a.X) * (c.Z - a.Z);
+            C = (b.X - a.X) * (c.Y - a.Y) - (c.X - a.X) * (b.Y - a.Y);
+            D = -a.X * ((b.Y - a.Y) * (c.Z - a.Z) - (c.Y - a.Y) * (b.Z - a.Z))
+                - a.Y * ((c.X - a.X) * (b.Z - a.Z) - (b.X - a.X) * (c.Z - a.Z))
+                - a.Z * ((b.X - a.X) * (c.Y - a.Y) - (c.X - a.X) * (b.Y - a.Y));
             N = new Vector3(A, B, C);
         }
 

@@ -78,9 +78,6 @@ namespace ClassLibrary1
                 else if (LineSegmentContainsPoint(b[0], b[1], a[0]) && LineSegmentContainsPoint(b[0], b[1], a[1]))
                     return a;
 
-                else if (a.Count > 2 || b.Count > 2)
-                    throw new Exception("Too many points!!!");
-
                 else return new List<Vector3>();
             }
         }
@@ -104,17 +101,16 @@ namespace ClassLibrary1
             t1.plane.A / t2.plane.A != t1.plane.C / t2.plane.C)
             {
                 List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
-                
+                ;
                 for (int i = 1; i < 3; i++)
                 {
                     Vector3 temp = t1.plane.Intersection(new StraightLine(t2.Points[i - 1], t2.Points[i]));
                     if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
                         I2.Add(temp);
-                    ;
+
                     temp = t2.plane.Intersection(new StraightLine(t1.Points[i - 1], t1.Points[i]));
                     if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
                         I1.Add(temp);
-                    ;
                 }
 
                 DeleteRepetitions(I1);
@@ -166,7 +162,7 @@ namespace ClassLibrary1
                     List<Vector3> vl = new List<Vector3>();
                     foreach (Vector3 v in pl.Vertices)
                         vl.Add(cam.Convert(v));
-                    lines.Add(new PolyLine3D(vl, pl.color));
+                    lines.Add(new PolyLine3D(vl));
                 }
 
             //sort набор линий так, чтобы те, которые дальше экрана, были в начале списка lines.Sort(); (важно в случае полигонов)
@@ -175,7 +171,7 @@ namespace ClassLibrary1
                 List<Point> points = new List<Point>();
                 foreach (Vector3 v in pl.Vertices)
                     points.Add(scr.Convert(v));
-                g.DrawLines(new Pen(pl.color, pl.color != Color.Black? 2f:1f), points.ToArray());
+                g.DrawLines(Pens.Black, points.ToArray());
             }
 
             g.Dispose();
