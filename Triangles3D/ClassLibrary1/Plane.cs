@@ -34,7 +34,9 @@ namespace ClassLibrary1
 
         public Vector3 Intersection(StraightLine l)
         {
-            float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X) / Vector3.ScalarMultiplication(l.DirVector, N);
+            float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X)
+                        / Vector3.ScalarMultiplication(l.DirVector, N);
+
             return new Vector3((l.point.X + t * l.DirVector.X), (l.point.Y + t * l.DirVector.Y), (l.point.Z + t * l.DirVector.Z));
         }
 

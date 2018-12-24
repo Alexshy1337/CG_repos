@@ -48,7 +48,6 @@ namespace Triangles3D
             MainPanel.Invalidate();
         }
 
-
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button.HasFlag(MouseButtons.Left))

@@ -18,12 +18,15 @@ namespace ClassLibrary1
 
         public static bool LineSegmentContainsPoint(Vector3 a, Vector3 b, Vector3 p)
         {
-            return
+            return (
+
             (Math.Min(a.X, b.X) <= p.X && p.X <= Math.Max(a.X, b.X))
             &&
             (Math.Min(a.Y, b.Y) <= p.Y && p.Y <= Math.Max(a.Y, b.Y))
             &&
-            (Math.Min(a.Z, b.Z) <= p.Z && p.Z <= Math.Max(a.Z, b.Z));
+            (Math.Min(a.Z, b.Z) <= p.Z && p.Z <= Math.Max(a.Z, b.Z))
+
+            && StraightLine.StraightLineContainsPoint(new StraightLine(a, b), p));
         }
 
         public static List<Vector3> LineSegmentsOverlap(List<Vector3> a, List<Vector3> b)

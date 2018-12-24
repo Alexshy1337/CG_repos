@@ -167,11 +167,6 @@
             this.t2cz.Name = "t2cz";
             this.t2cz.Size = new System.Drawing.Size(40, 20);
             this.t2cz.TabIndex = 25;
-            this.t2cz.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // t2ax
             // 
@@ -196,6 +191,11 @@
             this.t2ay.Name = "t2ay";
             this.t2ay.Size = new System.Drawing.Size(40, 20);
             this.t2ay.TabIndex = 4;
+            this.t2ay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // t2az
             // 
@@ -279,11 +279,6 @@
             this.t2bx.Name = "t2bx";
             this.t2bx.Size = new System.Drawing.Size(40, 20);
             this.t2bx.TabIndex = 20;
-            this.t2bx.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // t2by
             // 
@@ -296,6 +291,11 @@
             this.t2by.Name = "t2by";
             this.t2by.Size = new System.Drawing.Size(40, 20);
             this.t2by.TabIndex = 21;
+            this.t2by.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // t2cy
             // 
@@ -308,6 +308,11 @@
             this.t2cy.Name = "t2cy";
             this.t2cy.Size = new System.Drawing.Size(40, 20);
             this.t2cy.TabIndex = 24;
+            this.t2cy.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // t2bz
             // 
@@ -333,7 +338,7 @@
             this.t2cx.Size = new System.Drawing.Size(40, 20);
             this.t2cx.TabIndex = 23;
             this.t2cx.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -364,6 +369,7 @@
             // 
             // t1cz
             // 
+            this.t1cz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.t1cz.Location = new System.Drawing.Point(114, 84);
             this.t1cz.Minimum = new decimal(new int[] {
             10,
@@ -377,7 +383,7 @@
             1,
             0,
             0,
-            0});
+            -2147483648});
             // 
             // t1ax
             // 
@@ -415,7 +421,7 @@
             this.t1az.Size = new System.Drawing.Size(40, 20);
             this.t1az.TabIndex = 2;
             this.t1az.Value = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             0});
@@ -498,7 +504,7 @@
             this.t1by.Size = new System.Drawing.Size(40, 20);
             this.t1by.TabIndex = 15;
             this.t1by.Value = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             0});
@@ -514,6 +520,11 @@
             this.t1bz.Name = "t1bz";
             this.t1bz.Size = new System.Drawing.Size(40, 20);
             this.t1bz.TabIndex = 16;
+            this.t1bz.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
             // 
             // t1cx
             // 
@@ -539,10 +550,10 @@
             this.t1cy.Size = new System.Drawing.Size(40, 20);
             this.t1cy.TabIndex = 18;
             this.t1cy.Value = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
-            0});
+            -2147483648});
             // 
             // UPDbutton
             // 

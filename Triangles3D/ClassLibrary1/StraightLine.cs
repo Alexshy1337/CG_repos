@@ -32,6 +32,15 @@ namespace ClassLibrary1
             }
 
         }
+        
+        public static bool StraightLineContainsPoint(StraightLine l, Vector3 a)
+        {
+            float t = (a.X - l.point.X) / l.DirVector.X;
+            if ((l.point.Y + l.DirVector.Y * t) == a.Y && (l.point.Z + l.DirVector.Z * t) == a.Z)
+                return true;
+            else return false;
+
+        }
 
         public static float determinant3(float a11, float a12, float a13, float a21, float a22, float a23, float a31, float a32, float a33)
         {
