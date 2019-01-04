@@ -114,7 +114,7 @@
             this.Ytext.Name = "Ytext";
             this.Ytext.Size = new System.Drawing.Size(151, 20);
             this.Ytext.TabIndex = 6;
-            this.Ytext.Text = "Sin(t)";
+            this.Ytext.Text = "50*Sin(t)";
             // 
             // Xtext
             // 
@@ -122,7 +122,7 @@
             this.Xtext.Name = "Xtext";
             this.Xtext.Size = new System.Drawing.Size(151, 20);
             this.Xtext.TabIndex = 5;
-            this.Xtext.Text = "Cos(t)";
+            this.Xtext.Text = "50*Cos(t)";
             // 
             // NewFunc
             // 
@@ -132,6 +132,7 @@
             this.NewFunc.TabIndex = 3;
             this.NewFunc.Text = "New function";
             this.NewFunc.UseVisualStyleBackColor = true;
+            this.NewFunc.Click += new System.EventHandler(this.NewFunc_Click);
             // 
             // groupBox1
             // 

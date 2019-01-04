@@ -21,7 +21,6 @@ namespace ParametralGraphicPlotter
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, PlottingPanel, new object[] { true });
-            //conv = new Converter()
         }
 
         Converter conv;
@@ -30,10 +29,11 @@ namespace ParametralGraphicPlotter
 
         private void PlottingPanel_Paint(object sender, PaintEventArgs e)
         {
+            conv = new Converter(PlottingPanel.Width, PlottingPanel.Height);
             Bitmap b = new Bitmap(PlottingPanel.Width, PlottingPanel.Height);
-            DrawRealPlot(b, BC, LC, Xtext.Text, Ytext.Text);
+            DrawRealPlot(b, LC, BC, Xtext.Text, Ytext.Text);
             e.Graphics.DrawImage(b, 0, 0);
-            b.Dispose();
+            //b.Dispose();
 
         }
 
@@ -51,23 +51,28 @@ namespace ParametralGraphicPlotter
         private void PlottingPanel_MouseUp(object sender, MouseEventArgs e)
         {
 
-
-            PlottingPanel.Invalidate();
+            dragging = false;
+            //PlottingPanel.Invalidate();
         }
 
         private void PlottingPanel_MouseDown(object sender, MouseEventArgs e)
         {
 
 
-
-            PlottingPanel.Invalidate();
+            dragging = true;
+            //PlottingPanel.Invalidate();
         }
 
         private void PlottingPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            if(e.Button == MouseButtons.Right)
+            {
 
 
-            PlottingPanel.Invalidate();
+
+                PlottingPanel.Invalidate();
+            }
+
         }
 
         private void BackColorButton_Click(object sender, EventArgs e)
@@ -93,24 +98,31 @@ namespace ParametralGraphicPlotter
             PlottingPanel.Invalidate();
         }
 
-        
+        private void NewFunc_Click(object sender, EventArgs e)
+        {
+            PlottingPanel.Invalidate();
+        }
 
         private void DrawRealPlot(Bitmap bit, Color LineColor, Color BackColor, string xt, string yt)
         {
             XtensibleCalculator c = new XtensibleCalculator();
-
             var exp = c.ParseFunction(xt);
             var fx = exp.Compile();
             exp = c.ParseFunction(yt);
             var fy = exp.Compile();
             Dictionary<string, double> Dict = new Dictionary<string, double>();
             Dict.Add("t", 0);
-
-            for (int i = -bit.Width / 2; i < bit.Width/2; i++ )
+            for (int i = 0; i < bit.Height; i++)
+                bit.SetPixel(bit.Width / 2, i, Color.Black);
+            for (int i = 0; i < bit.Width; i++)
+                bit.SetPixel(i, bit.Height / 2, Color.Black);
+            for (double i = -bit.Width; i < bit.Width; i+=0.01) 
             {
                 Dict["t"] = i;
 
-                bit.SetPixel(conv.II(fx(Dict)), conv.JJ(fy(Dict)), LineColor);
+                int test1 = conv.II(fx(Dict)), test2 = conv.JJ(fy(Dict));
+                if (test1 > 0 && test1 < bit.Width && test2 > 0 && test2 < bit.Height)
+                    bit.SetPixel(test1, test2, LineColor);
                 
                 
                 //var calc = new Sprache.Calc.XtensibleCalculator();
