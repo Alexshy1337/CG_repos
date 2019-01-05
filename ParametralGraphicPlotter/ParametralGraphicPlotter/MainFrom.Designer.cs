@@ -31,26 +31,26 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PlottingPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PointsRB = new System.Windows.Forms.RadioButton();
+            this.LinesRB = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Step = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Ytext = new System.Windows.Forms.TextBox();
             this.Xtext = new System.Windows.Forms.TextBox();
             this.NewFunc = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AxisColorButton = new System.Windows.Forms.Button();
             this.LineColorButton = new System.Windows.Forms.Button();
             this.BackColorButton = new System.Windows.Forms.Button();
             this.MyColorDialog = new System.Windows.Forms.ColorDialog();
-            this.Step = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AxisColorButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LinesRB = new System.Windows.Forms.RadioButton();
-            this.PointsRB = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Step)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Step)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -98,6 +98,76 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(251, 597);
             this.panel2.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.PointsRB);
+            this.groupBox2.Controls.Add(this.LinesRB);
+            this.groupBox2.Location = new System.Drawing.Point(32, 47);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(143, 99);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Plotting Type";
+            // 
+            // PointsRB
+            // 
+            this.PointsRB.AutoSize = true;
+            this.PointsRB.Location = new System.Drawing.Point(23, 55);
+            this.PointsRB.Name = "PointsRB";
+            this.PointsRB.Size = new System.Drawing.Size(103, 17);
+            this.PointsRB.TabIndex = 1;
+            this.PointsRB.Text = "Points (it\'s awful)";
+            this.PointsRB.UseVisualStyleBackColor = true;
+            // 
+            // LinesRB
+            // 
+            this.LinesRB.AutoSize = true;
+            this.LinesRB.Checked = true;
+            this.LinesRB.Location = new System.Drawing.Point(23, 32);
+            this.LinesRB.Name = "LinesRB";
+            this.LinesRB.Size = new System.Drawing.Size(74, 17);
+            this.LinesRB.TabIndex = 0;
+            this.LinesRB.TabStop = true;
+            this.LinesRB.Text = "Small lines";
+            this.LinesRB.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(65, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Step";
+            // 
+            // Step
+            // 
+            this.Step.DecimalPlaces = 4;
+            this.Step.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.Step.Location = new System.Drawing.Point(100, 187);
+            this.Step.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Step.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            262144});
+            this.Step.Name = "Step";
+            this.Step.Size = new System.Drawing.Size(62, 20);
+            this.Step.TabIndex = 9;
+            this.Step.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             // 
             // label3
             // 
@@ -157,6 +227,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change color";
             // 
+            // AxisColorButton
+            // 
+            this.AxisColorButton.Location = new System.Drawing.Point(13, 80);
+            this.AxisColorButton.Name = "AxisColorButton";
+            this.AxisColorButton.Size = new System.Drawing.Size(77, 23);
+            this.AxisColorButton.TabIndex = 2;
+            this.AxisColorButton.Text = "Axes";
+            this.AxisColorButton.UseVisualStyleBackColor = true;
+            this.AxisColorButton.Click += new System.EventHandler(this.AxisColorButton_Click);
+            // 
             // LineColorButton
             // 
             this.LineColorButton.Location = new System.Drawing.Point(13, 52);
@@ -177,87 +257,6 @@
             this.BackColorButton.UseVisualStyleBackColor = true;
             this.BackColorButton.Click += new System.EventHandler(this.BackColorButton_Click);
             // 
-            // Step
-            // 
-            this.Step.DecimalPlaces = 4;
-            this.Step.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.Step.Location = new System.Drawing.Point(100, 187);
-            this.Step.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.Step.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            262144});
-            this.Step.Name = "Step";
-            this.Step.Size = new System.Drawing.Size(62, 20);
-            this.Step.TabIndex = 9;
-            this.Step.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 189);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Step";
-            // 
-            // AxisColorButton
-            // 
-            this.AxisColorButton.Location = new System.Drawing.Point(13, 80);
-            this.AxisColorButton.Name = "AxisColorButton";
-            this.AxisColorButton.Size = new System.Drawing.Size(77, 23);
-            this.AxisColorButton.TabIndex = 2;
-            this.AxisColorButton.Text = "Axes";
-            this.AxisColorButton.UseVisualStyleBackColor = true;
-            this.AxisColorButton.Click += new System.EventHandler(this.AxisColorButton_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.PointsRB);
-            this.groupBox2.Controls.Add(this.LinesRB);
-            this.groupBox2.Location = new System.Drawing.Point(32, 47);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(143, 99);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Plotting Type";
-            // 
-            // LinesRB
-            // 
-            this.LinesRB.AutoSize = true;
-            this.LinesRB.Location = new System.Drawing.Point(23, 32);
-            this.LinesRB.Name = "LinesRB";
-            this.LinesRB.Size = new System.Drawing.Size(74, 17);
-            this.LinesRB.TabIndex = 0;
-            this.LinesRB.TabStop = true;
-            this.LinesRB.Text = "Small lines";
-            this.LinesRB.UseVisualStyleBackColor = true;
-            // 
-            // PointsRB
-            // 
-            this.PointsRB.AutoSize = true;
-            this.PointsRB.Checked = true;
-            this.PointsRB.Location = new System.Drawing.Point(23, 68);
-            this.PointsRB.Name = "PointsRB";
-            this.PointsRB.Size = new System.Drawing.Size(103, 17);
-            this.PointsRB.TabIndex = 1;
-            this.PointsRB.TabStop = true;
-            this.PointsRB.Text = "Points (it\'s awful)";
-            this.PointsRB.UseVisualStyleBackColor = true;
-            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,10 +268,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Step)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Step)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
