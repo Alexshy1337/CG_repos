@@ -24,17 +24,22 @@ namespace ParametralGraphicPlotter
         }
 
         Converter conv;
-        Color BC = Color.White, LC = Color.Black;
+        //Point LastMouseLocation;
+        Color BC = Color.White, LC = Color.Black, AC = Color.Black;
         bool dragging = false;
 
         private void PlottingPanel_Paint(object sender, PaintEventArgs e)
         {
             conv = new Converter(PlottingPanel.Width, PlottingPanel.Height);
-            Bitmap b = new Bitmap(PlottingPanel.Width, PlottingPanel.Height);
-            DrawRealPlot(b, LC, BC, Xtext.Text, Ytext.Text);
-            e.Graphics.DrawImage(b, 0, 0);
-            //b.Dispose();
-
+            if (PointsRB.Checked)
+            {
+                Bitmap b = new Bitmap(PlottingPanel.Width, PlottingPanel.Height);
+                DrawRealPlot(b, Xtext.Text, Ytext.Text);
+                e.Graphics.DrawImage(b, 0, 0);
+                b.Dispose();
+            }
+            else
+                DrawRealPlot(e.Graphics, Xtext.Text, Ytext.Text);
         }
 
         private void PlottingPanel_MouseMove(object sender, MouseEventArgs e)
@@ -42,7 +47,7 @@ namespace ParametralGraphicPlotter
             PlottingPanel.Focus();
             if(dragging)
             {
-
+                //e.Location
 
                 PlottingPanel.Invalidate();
             }
@@ -50,17 +55,12 @@ namespace ParametralGraphicPlotter
 
         private void PlottingPanel_MouseUp(object sender, MouseEventArgs e)
         {
-
             dragging = false;
-            //PlottingPanel.Invalidate();
         }
 
         private void PlottingPanel_MouseDown(object sender, MouseEventArgs e)
         {
-
-
             dragging = true;
-            //PlottingPanel.Invalidate();
         }
 
         private void PlottingPanel_MouseClick(object sender, MouseEventArgs e)
@@ -77,16 +77,31 @@ namespace ParametralGraphicPlotter
 
         private void BackColorButton_Click(object sender, EventArgs e)
         {
-            if (MyColorDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            BC = MyColorDialog.Color;
+            if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                BC = MyColorDialog.Color;
+                PlottingPanel.Invalidate();
+            }
+            else return;
         }
 
         private void LineColorButton_Click(object sender, EventArgs e)
         {
-            if (MyColorDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            LC = MyColorDialog.Color;
+            if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                LC = MyColorDialog.Color;
+                PlottingPanel.Invalidate();
+            } else return;
+        }
+
+        private void AxisColorButton_Click(object sender, EventArgs e)
+        {
+            if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                AC = MyColorDialog.Color;
+                PlottingPanel.Invalidate();
+            }
+            else return;
         }
 
         private void PlottingPanel_MouseWheel(object sender, MouseEventArgs e)
@@ -103,35 +118,65 @@ namespace ParametralGraphicPlotter
             PlottingPanel.Invalidate();
         }
 
-        private void DrawRealPlot(Bitmap bit, Color LineColor, Color BackColor, string xt, string yt)
+        private void DrawRealPlot(Bitmap bit, string xt, string yt)
         {
+            Graphics g = Graphics.FromImage(bit);
+            g.Clear(BC);
+            g.Dispose();
+
             XtensibleCalculator c = new XtensibleCalculator();
             var exp = c.ParseFunction(xt);
             var fx = exp.Compile();
             exp = c.ParseFunction(yt);
             var fy = exp.Compile();
             Dictionary<string, double> Dict = new Dictionary<string, double>();
+
             Dict.Add("t", 0);
+
+            //rough axes
             for (int i = 0; i < bit.Height; i++)
-                bit.SetPixel(bit.Width / 2, i, Color.Black);
+                bit.SetPixel(bit.Width / 2, i, AC);
             for (int i = 0; i < bit.Width; i++)
-                bit.SetPixel(i, bit.Height / 2, Color.Black);
-            for (double i = -bit.Width; i < bit.Width; i+=0.01) 
+                bit.SetPixel(i, bit.Height / 2, AC);
+
+            //rough plotting
+            for (double i = -bit.Width; i < bit.Width; i += (double)Step.Value)
             {
                 Dict["t"] = i;
-
-                int test1 = conv.II(fx(Dict)), test2 = conv.JJ(fy(Dict));
+                int test1 = conv.II(fx(Dict)), test2 = conv.JJ(-fy(Dict));
                 if (test1 > 0 && test1 < bit.Width && test2 > 0 && test2 < bit.Height)
-                    bit.SetPixel(test1, test2, LineColor);
-                
-                
-                //var calc = new Sprache.Calc.XtensibleCalculator();
+                    bit.SetPixel(test1, test2, LC);
+            }
+        }
 
-                // using expressions
-                //var expr = calc.ParseExpression("Sin(y/x)", x => 2, y => System.Math.PI);
-                //var func = expr.Compile();
+        private void DrawRealPlot(Graphics g, string xt, string yt)
+        {
+            g.Clear(BC);
+            int width = (int)g.ClipBounds.Width, height = (int)g.ClipBounds.Height;
+            XtensibleCalculator c = new XtensibleCalculator();
+            var exp = c.ParseFunction(xt);
+            var fx = exp.Compile();
+            exp = c.ParseFunction(yt);
+            var fy = exp.Compile();
+            Dictionary<string, double> Dict = new Dictionary<string, double>();
+
+            Dict.Add("t", -width);
+
+            //rough axes
+            g.DrawLine(new Pen(AC), -1, height / 2, width + 1, height / 2);
+            g.DrawLine(new Pen(AC), width / 2, -1, width / 2, height + 1);
 
 
+
+            //rough plotting
+            Point p = new Point(conv.II(fx(Dict)), conv.JJ(-fy(Dict)));
+            for (double i = -width + (double)Step.Value; i < width; i += (double)Step.Value) 
+            {
+                Dict["t"] = i;
+                Point pt = new Point(conv.II(fx(Dict)), conv.JJ(-fy(Dict)));
+                if (p.X >= -width && p.Y >= -height && pt.X >= -width && pt.Y >= -height && p.X <= width && p.Y <= height && pt.X <= width && pt.Y <= height) 
+                    g.DrawLine(new Pen(LC), p, pt);
+                p = pt;
             }
 
 
@@ -166,20 +211,5 @@ namespace ParametralGraphicPlotter
 
 
 
- Usage example
-
-var calc = new Sprache.Calc.XtensibleCalculator();
-
-// using expressions
-var expr = calc.ParseExpression("Sin(y/x)", x => 2, y => System.Math.PI);
-var func = expr.Compile();
-Console.WriteLine("Result = {0}", func());
-
-// custom functions
-calc.RegisterFunction("Mul", (a, b, c) => a * b * c);
-expr = calc.ParseExpression("2 ^ Mul(PI, a, b)", a => 2, b => 10);
-Console.WriteLine("Result = {0}", func.Compile()());
-
-    
 
  */
