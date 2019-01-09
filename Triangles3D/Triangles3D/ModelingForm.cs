@@ -17,8 +17,8 @@ namespace Triangles3D
         private Camera camera;
         private Point last;
 
-        Triangle t1 = new Triangle(new Vector3(0.1f, 0.1f, 0.1f), new Vector3(0.1f, 0.4f, 0.2f), new Vector3(0.4f, 0.1f, 0.4f)),
-                 t2 = new Triangle(new Vector3(0.4f, 0.3f, 0.2f), new Vector3(0.0f, 0.2f, 0.4f), new Vector3(0.3f, 0.1f, 0.0f));
+        Triangle t1 = new Triangle(new Vector3(1f, 1f, 1f), new Vector3(1f, 4f, 2f), new Vector3(4f, 1f, 4f)),
+                 t2 = new Triangle(new Vector3(4f, 3f, 2f), new Vector3(0f, 2f, 4f), new Vector3(3f, 1f, 0f));
 
         public ModelingForm()
         {
@@ -37,9 +37,9 @@ namespace Triangles3D
             scene = new Scene();
             scene.Models.Add(t1);
             scene.Models.Add(t2);
-            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(1, 0, 0)));
-            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 1, 0)));
-            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 0, 1)));
+            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(5, 0, 0)));
+            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 5, 0)));
+            scene.Models.Add(new Line3D(new Vector3(0, 0, 0), new Vector3(0, 0, 5)));
 
             UPDbutton_Click(new object(), new EventArgs());
 
@@ -78,14 +78,14 @@ namespace Triangles3D
 
         private void UPDbutton_Click(object sender, EventArgs e)
         {
-            t1.Points[0] = new Vector3((float)(t1ax.Value / 10), (float)(t1ay.Value / 10), (float)(t1az.Value / 10));
-            t1.Points[1] = new Vector3((float)(t1bx.Value / 10), (float)(t1by.Value / 10), (float)(t1bz.Value / 10));
-            t1.Points[2] = new Vector3((float)(t1cx.Value / 10), (float)(t1cy.Value / 10), (float)(t1cz.Value / 10));
+            t1.Points[0] = new Vector3((float)(t1ax.Value), (float)(t1ay.Value), (float)(t1az.Value));
+            t1.Points[1] = new Vector3((float)(t1bx.Value), (float)(t1by.Value), (float)(t1bz.Value));
+            t1.Points[2] = new Vector3((float)(t1cx.Value), (float)(t1cy.Value), (float)(t1cz.Value));
             t1.UpdatePlane();
 
-            t2.Points[0] = new Vector3((float)(t2ax.Value / 10), (float)(t2ay.Value / 10), (float)(t2az.Value / 10));
-            t2.Points[1] = new Vector3((float)(t2bx.Value / 10), (float)(t2by.Value / 10), (float)(t2bz.Value / 10));
-            t2.Points[2] = new Vector3((float)(t2cx.Value / 10), (float)(t2cy.Value / 10), (float)(t2cz.Value / 10));
+            t2.Points[0] = new Vector3((float)(t2ax.Value), (float)(t2ay.Value), (float)(t2az.Value));
+            t2.Points[1] = new Vector3((float)(t2bx.Value), (float)(t2by.Value), (float)(t2bz.Value));
+            t2.Points[2] = new Vector3((float)(t2cx.Value), (float)(t2cy.Value), (float)(t2cz.Value));
             t2.UpdatePlane();
 
             MainPanel.Invalidate();
@@ -94,8 +94,8 @@ namespace Triangles3D
         private void MainPanel_Paint(object sender, PaintEventArgs e)
         {
             Bitmap bmp = scene.DrawAll(camera,
-            new ClassLibrary1.Screen(Size,
-            new Rectangle(-1, -1, 2, 2)));
+            new ClassLibrary1.Screen(MainPanel.Size,
+            new Rectangle(-6, -6, 12, 12)));
             e.Graphics.DrawImage(bmp, 0, 0);
             bmp.Dispose();
 

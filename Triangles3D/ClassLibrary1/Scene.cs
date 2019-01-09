@@ -20,13 +20,13 @@ namespace ClassLibrary1
         {
             return (
 
+            StraightLine.StraightLineContainsPoint(new StraightLine(a, b), p))
+            &&
             (Math.Min(a.X, b.X) <= p.X && p.X <= Math.Max(a.X, b.X))
             &&
             (Math.Min(a.Y, b.Y) <= p.Y && p.Y <= Math.Max(a.Y, b.Y))
             &&
-            (Math.Min(a.Z, b.Z) <= p.Z && p.Z <= Math.Max(a.Z, b.Z))
-
-            && StraightLine.StraightLineContainsPoint(new StraightLine(a, b), p));
+            (Math.Min(a.Z, b.Z) <= p.Z && p.Z <= Math.Max(a.Z, b.Z));
         }
 
         public static List<Vector3> LineSegmentsOverlap(List<Vector3> a, List<Vector3> b)
@@ -100,34 +100,57 @@ namespace ClassLibrary1
         public static List<Vector3> TriangleIntersection(Triangle t1, Triangle t2)
         {
             //плоскости не параллельны
-            if (t1.plane.A / t2.plane.A != t1.plane.B / t2.plane.B
+            if (t1.plane.A * t2.plane.B != t1.plane.B * t2.plane.A
             ||
-            t1.plane.B / t2.plane.B != t1.plane.C / t2.plane.C
+            t1.plane.B * t2.plane.C != t1.plane.C * t2.plane.B
             ||
-            t1.plane.A / t2.plane.A != t1.plane.C / t2.plane.C)
+            t1.plane.A * t2.plane.C != t1.plane.C * t2.plane.A)
             {
                 List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
-                
-                for (int i = 1; i < 3; i++)
-                {
-                    Vector3 temp = t1.plane.Intersection(new StraightLine(t2.Points[i - 1], t2.Points[i]));
-                    if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
-                        I2.Add(temp);
-                    ;
-                    temp = t2.plane.Intersection(new StraightLine(t1.Points[i - 1], t1.Points[i]));
-                    if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
-                        I1.Add(temp);
-                    ;
-                }
+
+                //for (int i = 1; i < 3; i++)
+                //{
+                //    Vector3 temp = t1.plane.Intersection(new StraightLine(t2.Points[i - 1], t2.Points[i]));
+                //    if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
+                //        I2.Add(temp);
+                //    ;
+                //    temp = t2.plane.Intersection(new StraightLine(t1.Points[i - 1], t1.Points[i]));
+                //    if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
+                //        I1.Add(temp);
+                //    ;
+                //}
+
+                Vector3 temp = t1.plane.Intersection(t2.Points[0], t2.Points[1]);
+                if (LineSegmentContainsPoint(t2.Points[0], t2.Points[1], temp))
+                    I2.Add(temp);
+
+                temp = t1.plane.Intersection(t2.Points[1], t2.Points[2]);
+                if (LineSegmentContainsPoint(t2.Points[1], t2.Points[2], temp))
+                    I2.Add(temp);
+
+                temp = t1.plane.Intersection(t2.Points[0], t2.Points[2]);
+                if (LineSegmentContainsPoint(t2.Points[0], t2.Points[2], temp))
+                    I2.Add(temp);
+
+                temp = t2.plane.Intersection(t1.Points[0], t1.Points[1]);
+                if (LineSegmentContainsPoint(t1.Points[0], t1.Points[1], temp))
+                    I1.Add(temp);
+
+                temp = t2.plane.Intersection(t1.Points[1], t1.Points[2]);
+                if (LineSegmentContainsPoint(t1.Points[1], t1.Points[2], temp))
+                    I1.Add(temp);
+
+                temp = t2.plane.Intersection(t1.Points[0], t1.Points[2]);
+                if (LineSegmentContainsPoint(t1.Points[0], t1.Points[2], temp))
+                    I1.Add(temp);
+
 
                 DeleteRepetitions(I1);
                 DeleteRepetitions(I2);
                 return LineSegmentsOverlap(I1, I2);
             }
-
             else if (t1.plane == t2.plane)
             {
-
                 List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
                 for (int i = 1; i < 3; i++)
                     for (int j = 1; j < 3; i++)
@@ -139,21 +162,11 @@ namespace ClassLibrary1
                         if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
                             I1.Add(temp);
                     }
-
-
                 return new List<Vector3>();
             }
             else //параллельны
                 return new List<Vector3>();
-
-
-
         }
-
-
-
-
-
 
         public Bitmap DrawAll(Camera cam, Screen scr)
         {

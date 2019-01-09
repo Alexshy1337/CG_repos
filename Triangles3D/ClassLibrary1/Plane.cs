@@ -20,7 +20,6 @@ namespace ClassLibrary1
         {
             Vector3 w = new Vector3(a, b), v = new Vector3(a, c);
 
-
             A = v[1] * w[2] - v[2] * w[1];
 
             B = v[2] * w[0] - v[0] * w[2];
@@ -34,34 +33,34 @@ namespace ClassLibrary1
 
         public Vector3 Intersection(StraightLine l)
         {
-
-            //добавить проверку параллельности прямой и плоскости
-            float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X)
-                        / Vector3.ScalarMultiplication(l.DirVector, N);
-
-            return new Vector3((l.point.X + t * l.DirVector.X), (l.point.Y + t * l.DirVector.Y), (l.point.Z + t * l.DirVector.Z));
+            if (Vector3.ScalarMultiplication(l.DirVector, N) != 0)
+            {
+                float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X) / Vector3.ScalarMultiplication(l.DirVector, N);
+                return new Vector3((l.point.X + t * l.DirVector.X), (l.point.Y + t * l.DirVector.Y), (l.point.Z + t * l.DirVector.Z));
+            }
+            else return new Vector3();
         }
+
+        public Vector3 Intersection(Vector3 a, Vector3 b)
+        {
+            return Intersection(new StraightLine(a, b));
+        }
+
 
         public static bool operator ==(Plane a, Plane b)
         {
-            return (a.A / b.A == a.B / b.B
+            return (a.A * b.B == a.B * b.A
             &&
-            a.B / b.B == a.C / b.C
+            a.B * b.C == a.C * b.B
             &&
-            a.A / b.A == a.C / b.C
+            a.A * b.C == a.C * b.A
             &&
-            a.D == b.D);
+            a.D * b.C == a.C * b.D);
         }
 
         public static bool operator !=(Plane a, Plane b)
         {
-            return (a.A / b.A != a.B / b.B
-            ||
-            a.B / b.B != a.C / b.C
-            ||
-            a.A / b.A != a.C / b.C
-            ||
-            a.D != b.D);
+            return !(a==b);
         }
 
     }
