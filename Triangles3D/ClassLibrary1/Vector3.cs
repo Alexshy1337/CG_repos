@@ -22,7 +22,7 @@ namespace ClassLibrary1
 
         public Vector3(Vector3 a, Vector3 b)
         {
-            crd = new float[] { a.X - b.X, a.Y - b.Y, a.Z - b.Z };
+            crd = new float[] { b.X - a.X, b.Y - a.Y, b.Z - a.Z };
         }
 
         public float X {

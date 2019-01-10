@@ -95,23 +95,30 @@ namespace Triangles3D
         {
             Bitmap bmp = scene.DrawAll(camera,
             new ClassLibrary1.Screen(MainPanel.Size,
-            new Rectangle(-6, -6, 12, 12)));
+            new Rectangle(-8, -8, 16, 16)));
             e.Graphics.DrawImage(bmp, 0, 0);
             bmp.Dispose();
 
         }
 
+
         private void IntButton_Click(object sender, EventArgs e)
         {
-            List<Vector3> points = Scene.TriangleIntersection(t1, t2);
-            if(points.Count > 0)
+            //if(scene.Models[scene.Models.Count - 1].)
+            //scene.Models.Remove(scene.Models.Last());
+            List<Vector3> intersectionPoints = new List<Vector3>();
+
+            intersectionPoints = Scene.TriangleIntersection(t1, t2);
+            if (intersectionPoints.Count > 0)
             {
-                scene.Models.Add(new PolyLine3D(points, Color.Red, true));
+                scene.Models.Add(new PolyLine3D(intersectionPoints, Color.Red, true));
                 AnswerTextBox.Text = "";
-                for (int i = 0; i < points.Count; i++)
-                    AnswerTextBox.Text += "(" + (points[i].X * 10).ToString() + ", " + (points[i].Y * 10).ToString() + ", " + (points[i].Z * 10).ToString() + ")";
+                for (int i = 0; i < intersectionPoints.Count; i++)
+                    AnswerTextBox.Text += "(" + (Math.Round(intersectionPoints[i].X, 2)).ToString() + "; " + (Math.Round(intersectionPoints[i].Y, 2)).ToString() + "; " + (Math.Round(intersectionPoints[i].Z, 2)).ToString() + ") ";
                 MainPanel.Invalidate();
             }
+            else
+                AnswerTextBox.Text = "";
         }
     }
 }

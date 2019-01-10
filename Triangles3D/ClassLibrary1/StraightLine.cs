@@ -39,11 +39,13 @@ namespace ClassLibrary1
         {
             if (!a.IsEmpty())
                 return
-                    (a.X - l.point.X) * l.DirVector.Y == (a.Y - l.point.Y) * l.DirVector.X
+                    (
+                    Math.Abs((a.X - l.point.X) * l.DirVector.Y - (a.Y - l.point.Y) * l.DirVector.X) < 0.00001
                     &&
-                    (a.Y - l.point.Y) * l.DirVector.Z == (a.Z - l.point.Z) * l.DirVector.Y
+                    Math.Abs((a.Y - l.point.Y) * l.DirVector.Z - (a.Z - l.point.Z) * l.DirVector.Y) < 0.00001
                     &&
-                    (a.X - l.point.X) * l.DirVector.Z == (a.Z - l.point.Z) * l.DirVector.X;
+                    Math.Abs((a.X - l.point.X) * l.DirVector.Z - (a.Z - l.point.Z) * l.DirVector.X) < 0.00001
+                    );
             return false;
 
         }

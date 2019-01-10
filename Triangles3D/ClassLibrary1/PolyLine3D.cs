@@ -13,10 +13,13 @@ namespace ClassLibrary1
 
         public PolyLine3D(IList<Vector3> v, Color LineColor, bool closed = false)
         {
-            vertices.AddRange(v);
-            color = LineColor;
-            if (closed)
-                vertices.Add(v[0]);
+            if(v.Count>0)
+            {
+                vertices.AddRange(v);
+                color = LineColor;
+                if (closed)
+                    vertices.Add(v[0]);
+            }
         }
 
         public PolyLine3D(IList<Vector3> v, bool closed = false)

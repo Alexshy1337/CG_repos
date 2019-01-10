@@ -26,7 +26,7 @@ namespace ClassLibrary1
 
             C = v[0] * w[1] - v[1] * w[0];
 
-            D = a.Y * B - a.X * A - a.Z * C;
+            D = -a.Y * B - a.X * A - a.Z * C;
 
             N = new Vector3(A, B, C);
         }
