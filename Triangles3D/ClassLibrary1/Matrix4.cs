@@ -8,17 +8,17 @@ namespace ClassLibrary1
 {
     public struct Matrix4
     {
-        private float[,] matr;
+        private double[,] matr;
 
-        public Matrix4(float[,] m)
+        public Matrix4(double[,] m)
         {
-            matr = new float[4, 4];
+            matr = new double[4, 4];
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     matr[i, j] = m[i, j];
         }
 
-        public float this[int i, int j]
+        public double this[int i, int j]
         {
             get { return matr[i, j]; }
             set { matr[i, j] = value; }
@@ -26,12 +26,12 @@ namespace ClassLibrary1
 
         public static Matrix4 Zero()
         {
-            return new Matrix4(new float[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } });
+            return new Matrix4(new double[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } });
         }
 
         public static Matrix4 One()
         {
-            return new Matrix4(new float[,]
+            return new Matrix4(new double[,]
             {
                 { 1,0,0,0},
                 { 0,1,0,0},
@@ -60,15 +60,15 @@ namespace ClassLibrary1
             return r;
         }
 
-        public static Matrix4 Rotate(int ia, float angle)
+        public static Matrix4 Rotate(int ia, double angle)
         {
             int a1 = (ia + 1) % 3;
             int a2 = (ia + 2) % 3;
             Matrix4 m = Matrix4.One();
-            m[a1, a1] = (float)Math.Cos(angle);
-            m[a1, a2] = (float)-Math.Sin(angle);
-            m[a2, a1] = (float)Math.Sin(angle);
-            m[a2, a2] = (float)Math.Cos(angle);
+            m[a1, a1] = (double)Math.Cos(angle);
+            m[a1, a2] = (double)-Math.Sin(angle);
+            m[a2, a1] = (double)Math.Sin(angle);
+            m[a2, a2] = (double)Math.Cos(angle);
             return m;
         }
     }

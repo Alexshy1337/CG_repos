@@ -8,10 +8,10 @@ namespace ClassLibrary1
 {
     public class Plane
     {
-        public float A { get; set; }
-        public float B { get; set; }
-        public float C { get; set; }
-        public float D { get; set; }
+        public double A { get; set; }
+        public double B { get; set; }
+        public double C { get; set; }
+        public double D { get; set; }
         public Vector3 N { get; set; }
 
         public Plane() { }
@@ -33,9 +33,9 @@ namespace ClassLibrary1
 
         public Vector3 Intersection(StraightLine l)
         {
-            if (Vector3.ScalarMultiplication(l.DirVector, N) != 0)
+            if (Math.Abs(Vector3.ScalarMultiplication(l.DirVector, N)) > 0.0001)
             {
-                float t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X) / Vector3.ScalarMultiplication(l.DirVector, N);
+                double t = (-D - C * l.point.Z - B * l.point.Y - A * l.point.X) / Vector3.ScalarMultiplication(l.DirVector, N);
                 return new Vector3((l.point.X + t * l.DirVector.X), (l.point.Y + t * l.DirVector.Y), (l.point.Z + t * l.DirVector.Z));
             }
             else return new Vector3();
@@ -49,13 +49,13 @@ namespace ClassLibrary1
 
         public static bool operator ==(Plane a, Plane b)
         {
-            return (a.A * b.B == a.B * b.A
+            return (Math.Abs(a.A * b.B - a.B * b.A) < 0.001
             &&
-            a.B * b.C == a.C * b.B
+            Math.Abs(a.B * b.C - a.C * b.B) < 0.001
             &&
-            a.A * b.C == a.C * b.A
+            Math.Abs(a.A * b.C - a.C * b.A) < 0.001
             &&
-            a.D * b.C == a.C * b.D);
+            Math.Abs(a.D * b.C - a.C * b.D) < 0.001);
         }
 
         public static bool operator !=(Plane a, Plane b)

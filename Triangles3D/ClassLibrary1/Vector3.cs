@@ -8,31 +8,31 @@ namespace ClassLibrary1
 {
     public struct Vector3 //из чего будут состоять модели
     {
-        private float[] crd;
+        private double[] crd;
 
         public Vector3(Vector4 v)
         {
-            crd = new float[] { v.X, v.Y, v.Z };
+            crd = new double[] { v.X, v.Y, v.Z };
         }
 
-        public Vector3(float x, float y, float z)
+        public Vector3(double x, double y, double z)
         {
-            crd = new float[] { x, y, z };
+            crd = new double[] { x, y, z };
         }
 
         public Vector3(Vector3 a, Vector3 b)
         {
-            crd = new float[] { b.X - a.X, b.Y - a.Y, b.Z - a.Z };
+            crd = new double[] { b.X - a.X, b.Y - a.Y, b.Z - a.Z };
         }
 
-        public float X {
+        public double X {
             get
             { return crd[0]; }
             set
             { crd[0] = value; }
         }
 
-        public float Y
+        public double Y
         {
             get
             { return crd[1]; }
@@ -40,7 +40,7 @@ namespace ClassLibrary1
             { crd[1] = value; }
         }
 
-        public float Z
+        public double Z
         {
             get
             { return crd[2]; }
@@ -53,13 +53,13 @@ namespace ClassLibrary1
             return crd == null;
         }
 
-        public float this[int i] // перегрузка индексного оператора
+        public double this[int i] // перегрузка индексного оператора
         {
             get { return crd[i]; }
             set { crd[i] = value; }
         }
 
-        public static float ScalarMultiplication(Vector3 v1, Vector3 v2)
+        public static double ScalarMultiplication(Vector3 v1, Vector3 v2)
         {
             return (v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z);
         }

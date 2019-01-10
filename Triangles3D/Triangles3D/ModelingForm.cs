@@ -64,11 +64,11 @@ namespace Triangles3D
         {
             if (e.Button.HasFlag(MouseButtons.Left) && !last.IsEmpty)
             {
-                float dx = -e.Location.X + last.X;
-                float dy =  e.Location.Y - last.Y;
+                double dx = -e.Location.X + last.X;
+                double dy =  e.Location.Y - last.Y;
                 camera.View =
-                    Matrix4.Rotate(1, dx * (float)Math.PI / 180) *
-                    Matrix4.Rotate(0, dy * (float)Math.PI / 180) *
+                    Matrix4.Rotate(1, dx * (double)Math.PI / 180) *
+                    Matrix4.Rotate(0, dy * (double)Math.PI / 180) *
                     camera.View;
                 MainPanel.Invalidate();
                 last = e.Location;
@@ -78,14 +78,14 @@ namespace Triangles3D
 
         private void UPDbutton_Click(object sender, EventArgs e)
         {
-            t1.Points[0] = new Vector3((float)(t1ax.Value), (float)(t1ay.Value), (float)(t1az.Value));
-            t1.Points[1] = new Vector3((float)(t1bx.Value), (float)(t1by.Value), (float)(t1bz.Value));
-            t1.Points[2] = new Vector3((float)(t1cx.Value), (float)(t1cy.Value), (float)(t1cz.Value));
+            t1.Points[0] = new Vector3((double)(t1ax.Value), (double)(t1ay.Value), (double)(t1az.Value));
+            t1.Points[1] = new Vector3((double)(t1bx.Value), (double)(t1by.Value), (double)(t1bz.Value));
+            t1.Points[2] = new Vector3((double)(t1cx.Value), (double)(t1cy.Value), (double)(t1cz.Value));
             t1.UpdatePlane();
 
-            t2.Points[0] = new Vector3((float)(t2ax.Value), (float)(t2ay.Value), (float)(t2az.Value));
-            t2.Points[1] = new Vector3((float)(t2bx.Value), (float)(t2by.Value), (float)(t2bz.Value));
-            t2.Points[2] = new Vector3((float)(t2cx.Value), (float)(t2cy.Value), (float)(t2cz.Value));
+            t2.Points[0] = new Vector3((double)(t2ax.Value), (double)(t2ay.Value), (double)(t2az.Value));
+            t2.Points[1] = new Vector3((double)(t2bx.Value), (double)(t2by.Value), (double)(t2bz.Value));
+            t2.Points[2] = new Vector3((double)(t2cx.Value), (double)(t2cy.Value), (double)(t2cz.Value));
             t2.UpdatePlane();
 
             MainPanel.Invalidate();

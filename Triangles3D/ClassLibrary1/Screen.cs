@@ -18,8 +18,8 @@ namespace ClassLibrary1
         }
         public Point Convert(Vector3 v)
         {
-            float x = (v.X - Rectangle.X) / Rectangle.Width * Size.Width;
-            float y = (v.Y - Rectangle.Y) / Rectangle.Height * Size.Height;
+            double x = (v.X - Rectangle.X) / Rectangle.Width * Size.Width;
+            double y = (v.Y - Rectangle.Y) / Rectangle.Height * Size.Height;
             return new Point((int)x, (int)y);
         }
     }

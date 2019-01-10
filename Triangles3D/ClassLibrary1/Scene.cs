@@ -108,18 +108,6 @@ namespace ClassLibrary1
             {
                 List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
 
-                //for (int i = 1; i < 3; i++)
-                //{
-                //    Vector3 temp = t1.plane.Intersection(new StraightLine(t2.Points[i - 1], t2.Points[i]));
-                //    if (LineSegmentContainsPoint(t2.Points[i - 1], t2.Points[i], temp))
-                //        I2.Add(temp);
-                //    ;
-                //    temp = t2.plane.Intersection(new StraightLine(t1.Points[i - 1], t1.Points[i]));
-                //    if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
-                //        I1.Add(temp);
-                //    ;
-                //}
-
                 Vector3 temp = t1.plane.Intersection(t2.Points[0], t2.Points[1]);
                 if (LineSegmentContainsPoint(t2.Points[0], t2.Points[1], temp))
                     I2.Add(temp);
@@ -151,18 +139,75 @@ namespace ClassLibrary1
             }
             else if (t1.plane == t2.plane)
             {
-                List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
+                List<Vector3> output = new List<Vector3>();
+                //List<Vector3> I1 = new List<Vector3>(), I2 = new List<Vector3>();
+
+                //StraightLine a = new StraightLine(t1.Points[0], t1.Points[1]),
+                //    b = new StraightLine(t2.Points[0], t2.Points[1]);
+                //Vector3 temp = a.Intersection(b);
+
+                //if (StraightLine.StraightLineContainsPoint(a, temp) 
+                //    && StraightLine.StraightLineContainsPoint(b, temp))
+                //    output.Add(temp);
+
+                //a = new StraightLine(t1.Points[1], t1.Points[2]);
+
+                //if (StraightLine.StraightLineContainsPoint(a, temp)
+                //    && StraightLine.StraightLineContainsPoint(b, temp))
+                //    output.Add(temp);
+
+                //a = new StraightLine(t1.Points[0], t1.Points[2]);
+
+                //if (StraightLine.StraightLineContainsPoint(a, temp)
+                //    && StraightLine.StraightLineContainsPoint(b, temp))
+                //    output.Add(temp);
+
+
+
+
+
+                StraightLine a, b;
+                Vector3 temp;
+
                 for (int i = 1; i < 3; i++)
-                    for (int j = 1; j < 3; i++)
+                    for (int j = 1; j < 3; j++)
                     {
-                        StraightLine t = new StraightLine(t1.Points[i - 1], t1.Points[i]), l = new StraightLine(t2.Points[j - 1], t2.Points[j]);
-                        Vector3 temp = t.Intersection(l);
-                        if (LineSegmentContainsPoint(t2.Points[j - 1], t2.Points[j], temp))
-                            I2.Add(temp);
-                        if (LineSegmentContainsPoint(t1.Points[i - 1], t1.Points[i], temp))
-                            I1.Add(temp);
+                        a = new StraightLine(t1.Points[i - 1], t1.Points[i]);
+                        b = new StraightLine(t2.Points[j - 1], t2.Points[j]);
+
+                        temp = a.Intersection(b);
+
+                        if (StraightLine.StraightLineContainsPoint(a, temp)
+                         && StraightLine.StraightLineContainsPoint(b, temp))
+                            output.Add(temp);
                     }
-                return new List<Vector3>();
+
+                for(int j = 1; j < 3; j++)
+                {
+                    a = new StraightLine(t1.Points[0], t1.Points[2]);
+                    b = new StraightLine(t2.Points[j - 1], t2.Points[j]);
+
+                    temp = a.Intersection(b);
+
+                    if (StraightLine.StraightLineContainsPoint(a, temp)
+                     && StraightLine.StraightLineContainsPoint(b, temp))
+                        output.Add(temp);
+                }
+
+                a = new StraightLine(t1.Points[0], t1.Points[2]);
+                b = new StraightLine(t2.Points[0], t2.Points[2]);
+
+                temp = a.Intersection(b);
+
+                if (StraightLine.StraightLineContainsPoint(a, temp)
+                 && StraightLine.StraightLineContainsPoint(b, temp))
+                    output.Add(temp);
+
+
+                DeleteRepetitions(output);
+                //DeleteRepetitions(I2);
+
+                return output;
             }
             else //параллельны
                 return new List<Vector3>();

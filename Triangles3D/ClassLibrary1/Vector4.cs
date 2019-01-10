@@ -8,23 +8,23 @@ namespace ClassLibrary1
 {
     public struct Vector4
     {
-        private float[] crd;
+        private double[] crd;
 
         public Vector4(Vector3 v)
         {
-            crd = new float[4] { v.X, v.Y, v.Z, 1};
+            crd = new double[4] { v.X, v.Y, v.Z, 1};
         }
         //public Vector4(Vector3 v) : this.(v.X, v.Y, v.Z)
         //{
-        //    crd = new float[4] { X, Y, Z, w };
+        //    crd = new double[4] { X, Y, Z, w };
         //}
 
-        public Vector4(float x, float y, float z, float w = 1)
+        public Vector4(double x, double y, double z, double w = 1)
         {
-            crd = new float[] { x, y, z, w };
+            crd = new double[] { x, y, z, w };
         }
 
-        public float X
+        public double X
         {
             get
             { return crd[0]; }
@@ -32,7 +32,7 @@ namespace ClassLibrary1
             { crd[0] = value; }
         }
 
-        public float Y
+        public double Y
         {
             get
             { return crd[1]; }
@@ -40,7 +40,7 @@ namespace ClassLibrary1
             { crd[1] = value; }
         }
 
-        public float Z
+        public double Z
         {
             get
             { return crd[2]; }
@@ -48,7 +48,7 @@ namespace ClassLibrary1
             { crd[2] = value; }
         }
 
-        public float W
+        public double W
         {
             get
             { return crd[3]; }
@@ -56,7 +56,7 @@ namespace ClassLibrary1
             { crd[3] = value; }
         }
 
-        public float this[int i] // перегрузка индексного оператора
+        public double this[int i] // перегрузка индексного оператора
         {
             get { return crd[i]; }
             set { crd[i] = value; }
