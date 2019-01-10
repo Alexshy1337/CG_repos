@@ -1,6 +1,6 @@
 ﻿namespace ParametralGraphicPlotter
 {
-    partial class MainFrom
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -38,17 +38,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Step = new System.Windows.Forms.NumericUpDown();
             this.EndT = new System.Windows.Forms.NumericUpDown();
-            this.ErrorLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Ytext = new System.Windows.Forms.TextBox();
             this.Xtext = new System.Windows.Forms.TextBox();
-            this.NewFunc = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NetColorButton = new System.Windows.Forms.Button();
             this.AxisColorButton = new System.Windows.Forms.Button();
             this.LineColorButton = new System.Windows.Forms.Button();
             this.BackColorButton = new System.Windows.Forms.Button();
             this.MyColorDialog = new System.Windows.Forms.ColorDialog();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,13 +89,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.ErrorLabel);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Ytext);
             this.panel2.Controls.Add(this.Xtext);
-            this.panel2.Controls.Add(this.NewFunc);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(729, 3);
@@ -212,14 +211,6 @@
             0,
             0});
             // 
-            // ErrorLabel
-            // 
-            this.ErrorLabel.AutoSize = true;
-            this.ErrorLabel.Location = new System.Drawing.Point(129, 272);
-            this.ErrorLabel.Name = "ErrorLabel";
-            this.ErrorLabel.Size = new System.Drawing.Size(0, 13);
-            this.ErrorLabel.TabIndex = 17;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -255,28 +246,30 @@
             this.Xtext.Size = new System.Drawing.Size(151, 20);
             this.Xtext.TabIndex = 5;
             this.Xtext.Text = "20*t*Cos(t)";
-            // 
-            // NewFunc
-            // 
-            this.NewFunc.Location = new System.Drawing.Point(100, 301);
-            this.NewFunc.Name = "NewFunc";
-            this.NewFunc.Size = new System.Drawing.Size(75, 39);
-            this.NewFunc.TabIndex = 3;
-            this.NewFunc.Text = "New function";
-            this.NewFunc.UseVisualStyleBackColor = true;
-            this.NewFunc.Click += new System.EventHandler(this.NewFunc_Click);
+            this.Xtext.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FuncTextDone);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NetColorButton);
             this.groupBox1.Controls.Add(this.AxisColorButton);
             this.groupBox1.Controls.Add(this.LineColorButton);
             this.groupBox1.Controls.Add(this.BackColorButton);
-            this.groupBox1.Location = new System.Drawing.Point(135, 379);
+            this.groupBox1.Location = new System.Drawing.Point(135, 365);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(102, 109);
+            this.groupBox1.Size = new System.Drawing.Size(102, 141);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change color";
+            // 
+            // NetColorButton
+            // 
+            this.NetColorButton.Location = new System.Drawing.Point(13, 109);
+            this.NetColorButton.Name = "NetColorButton";
+            this.NetColorButton.Size = new System.Drawing.Size(75, 23);
+            this.NetColorButton.TabIndex = 3;
+            this.NetColorButton.Text = "Net";
+            this.NetColorButton.UseVisualStyleBackColor = true;
+            this.NetColorButton.Click += new System.EventHandler(this.NetColorButton_Click);
             // 
             // AxisColorButton
             // 
@@ -308,14 +301,24 @@
             this.BackColorButton.UseVisualStyleBackColor = true;
             this.BackColorButton.Click += new System.EventHandler(this.BackColorButton_Click);
             // 
-            // MainFrom
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(41, 197);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(182, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Press Enter while in TextBox to replot";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 603);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MainFrom";
+            this.Name = "MainForm";
             this.Text = "Form";
+            this.Resize += new System.EventHandler(this.MainForm_ResizeEnd);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -337,7 +340,6 @@
         private System.Windows.Forms.ColorDialog MyColorDialog;
         private System.Windows.Forms.Button LineColorButton;
         private System.Windows.Forms.Button BackColorButton;
-        private System.Windows.Forms.Button NewFunc;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -351,7 +353,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown EndT;
-        private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.Button NetColorButton;
+        private System.Windows.Forms.Label label6;
     }
 }
 

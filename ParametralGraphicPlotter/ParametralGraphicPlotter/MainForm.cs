@@ -11,9 +11,9 @@ using Sprache.Calc;
 
 namespace ParametralGraphicPlotter
 {
-    public partial class MainFrom : Form
+    public partial class MainForm : Form
     {
-        public MainFrom()
+        public MainForm()
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered",
@@ -21,19 +21,24 @@ namespace ParametralGraphicPlotter
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, PlottingPanel, new object[] { true });
+            ForPlot = new Plotter();
+            ForPlot.conv = new Converter(PlottingPanel.Width, PlottingPanel.Height);
         }
 
-        Converter conv;
+        //Converter conv;
         //Point LastMouseLocation;
-        Color BC = Color.White, LC = Color.Black, AC = Color.Black;
+        Plotter ForPlot;
+        Point lastPoint = new Point(0,0);
         bool dragging = false;
 
         private void PlottingPanel_Paint(object sender, PaintEventArgs e)
         {
-            conv = new Converter(PlottingPanel.Width, PlottingPanel.Height);
+            ForPlot.StartT = (double)StartT.Value;
+            ForPlot.EndT = (double)EndT.Value;
+            ForPlot.Step = (double)Step.Value;
             Bitmap b = new Bitmap(PlottingPanel.Width, PlottingPanel.Height);
             Graphics g = Graphics.FromImage(b);
-            DrawRealPlot(g, Xtext.Text, Ytext.Text);
+            ForPlot.DrawRealPlot(g, Xtext.Text, Ytext.Text);
             e.Graphics.DrawImage(b, 0, 0);
             b.Dispose();
             g.Dispose();
@@ -44,9 +49,9 @@ namespace ParametralGraphicPlotter
             PlottingPanel.Focus();
             if(dragging)
             {
-                //e.Location
 
                 PlottingPanel.Invalidate();
+                lastPoint = e.Location;
             }
         }
 
@@ -76,7 +81,7 @@ namespace ParametralGraphicPlotter
         {
             if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                BC = MyColorDialog.Color;
+                ForPlot.BC = MyColorDialog.Color;
                 PlottingPanel.Invalidate();
             }
             else return;
@@ -86,7 +91,7 @@ namespace ParametralGraphicPlotter
         {
             if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                LC = MyColorDialog.Color;
+                ForPlot.LC = MyColorDialog.Color;
                 PlottingPanel.Invalidate();
             } else return;
         }
@@ -95,72 +100,50 @@ namespace ParametralGraphicPlotter
         {
             if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                AC = MyColorDialog.Color;
+                ForPlot.AC = MyColorDialog.Color;
                 PlottingPanel.Invalidate();
             }
             else return;
         }
 
+        private void NetColorButton_Click(object sender, EventArgs e)
+        {
+            if (MyColorDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                ForPlot.NC = MyColorDialog.Color;
+                PlottingPanel.Invalidate();
+            }
+            else return;
+
+        }
+
         private void PlottingPanel_MouseWheel(object sender, MouseEventArgs e)
         {
-
-
-
-
+            if (ForPlot.conv.X2 - ForPlot.conv.ScreenWidth * e.Delta / 300 > 0
+                &&
+                ForPlot.conv.Y2 - ForPlot.conv.ScreenHeight * e.Delta / 300 > 0
+                ||
+                e.Delta < 0
+                )
+            {
+                ForPlot.conv.X1 += ForPlot.conv.ScreenWidth * e.Delta / 300;
+                ForPlot.conv.X2 -= ForPlot.conv.ScreenWidth * e.Delta / 300;
+                ForPlot.conv.Y1 += ForPlot.conv.ScreenHeight * e.Delta / 300;
+                ForPlot.conv.Y2 -= ForPlot.conv.ScreenHeight * e.Delta / 300;
+            }
             PlottingPanel.Invalidate();
         }
 
-        private void NewFunc_Click(object sender, EventArgs e)
+        private void FuncTextDone(object sender, KeyEventArgs e)
         {
-            PlottingPanel.Invalidate();
+            if(e.KeyCode == Keys.Enter)
+                PlottingPanel.Invalidate();
         }
 
-        private void DrawRealPlot(Graphics g, string xt, string yt)
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
-            try
-            {
-                g.Clear(BC);
-                int width = (int)g.ClipBounds.Width, height = (int)g.ClipBounds.Height;
-                XtensibleCalculator c = new XtensibleCalculator();
-
-                Func<Dictionary<string, double>, double> fx, fy;
-
-
-                var exp = c.ParseFunction(xt);
-                fx = exp.Compile();
-                exp = c.ParseFunction(yt);
-                fy = exp.Compile();
-                Dictionary<string, double> Dict = new Dictionary<string, double>();
-
-                Dict.Add("t", (double)StartT.Value);
-
-                //rough axes
-                g.DrawLine(new Pen(AC), -1, height / 2, width + 1, height / 2);
-                g.DrawLine(new Pen(AC), width / 2, -1, width / 2, height + 1);
-
-
-
-                //rough plotting
-                Point p = new Point(conv.II(fx(Dict)), conv.JJ(-fy(Dict)));
-                for (double i = (double)StartT.Value + (double)Step.Value; i < (double)EndT.Value; i += (double)Step.Value)
-                {
-                    Dict["t"] = i;
-                    Point pt = new Point(conv.II(fx(Dict)), conv.JJ(-fy(Dict)));
-                    if (p.X >= -width && p.Y >= -height && pt.X >= -width && pt.Y >= -height && p.X <= width && p.Y <= height && pt.X <= width && pt.Y <= height)
-                        g.DrawLine(new Pen(LC), p, pt);
-                    p = pt;
-                }
-            }
-
-            catch (Sprache.ParseException)
-            {
-                ErrorLabel.Text = "Wrong input!";
-            }
-
-
-
+            ForPlot.conv = new Converter(PlottingPanel.Width, PlottingPanel.Height);
         }
-
     }
 }
 
@@ -188,7 +171,12 @@ namespace ParametralGraphicPlotter
 /*
 
 
-    перетаксивание, архитектура, вычисление по клику, оси и сетка
+     перетаксивание, 
+     масштабирование,
+     автоматическое построение (убрать кнопку "new func"), 
+DONE архитектура,         
+     вычисление по клику, kind of impossible??? a little???
+DONE оси и сетка          
 
 
  */

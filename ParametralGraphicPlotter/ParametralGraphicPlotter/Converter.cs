@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ParametralGraphicPlotter
 {
-    class Converter
+    public class Converter
     {
         public double X1 { get; set; }
         public double Y1 { get; set; }
@@ -49,10 +49,6 @@ namespace ParametralGraphicPlotter
 
         public Converter(int sw, int sh)
         {
-            X1 = -sw / 2;
-            X2 = sw / 2;
-            Y1 = -sh / 2;
-            Y2 = sh / 2;
             ScreenWidth = sw;
             ScreenHeight = sh;
         }
